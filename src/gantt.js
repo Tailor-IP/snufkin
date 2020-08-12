@@ -5,13 +5,13 @@ import {viewComponents} from './lightboxes';
 const API_URL = window.location.hostname === "www.tailor-ip.com" ? "https://www.tailor-ip.com/_functions" : "https://www.tailor-ip.com/_functions-dev";
 let gantt;
 
-export const Gantt = ({tasks}) => {
+export const Gantt = ({data, onSave}) => {
     const [selectedTask, setSelectedTask] = useState(null);
 
     useEffect(() => {
         gantt = window.gantt;
         initConfig(gantt, false)
-        window.gantt.parse(tasks);
+        window.gantt.parse(data);
         gantt.attachEvent("onLightbox", function(id) {
                setSelectedTask(gantt.getTask(id))
             })

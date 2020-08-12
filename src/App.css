@@ -176,3 +176,8 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+.zoom-controller {
+    display: flex;
+    justify-content: flex-end;
+}

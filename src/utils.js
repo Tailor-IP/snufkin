@@ -38,10 +38,6 @@ export function getCostString(minCost, maxCost, officialFee) {
 
 export const avg = (n1, n2) =>(parseFloat(n1) + parseFloat(n2)) / 2
 
-export function sendMsg(msg) {
-  window.parent.postMessage(msg, "*");
-}
-
 export const getParents = (task) => {
     const parents = [];
     let parentId = task.parent;
