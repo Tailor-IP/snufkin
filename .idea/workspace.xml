@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1frDsnpN6aaN2wxou0JOVTKWQ02" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="" />
+      <created>1596967526941</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596967526941</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="218" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597222930755">
+      <screen x="72" y="27" width="1368" height="783" />
+    </state>
+    <state x="218" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1368.783@72.27.1368.783" timestamp="1597222930755" />
+    <state x="451" y="211" width="648" height="436" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597230012213">
+      <screen x="72" y="27" width="1368" height="783" />
+    </state>
+    <state x="451" y="211" width="648" height="436" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1368.783@72.27.1368.783" timestamp="1597230012213" />
+    <state x="369" y="25" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597230014002">
+      <screen x="72" y="27" width="1368" height="783" />
+    </state>
+    <state x="369" y="25" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1368.783@72.27.1368.783" timestamp="1597230014002" />
+    <state x="445" y="155" width="621" height="522" key="find.popup" timestamp="1597145957666">
+      <screen x="72" y="27" width="1368" height="783" />
+    </state>
+    <state x="445" y="155" width="621" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1597145957666" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1597234598448">
+      <screen x="72" y="27" width="1368" height="783" />
+    </state>
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1597234598448" />
+  </component>
+</project>
