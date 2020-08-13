@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/lightboxes/buttons/closeButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lightboxes/buttons/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/zoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/zoom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gantt-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/folderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/folderDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/milestoneDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/milestoneDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/taskDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/taskDetails.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +78,9 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="445" y="155" width="621" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1597145957666" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1597308867811">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1597312479755">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1597308867811" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1597312479755" />
   </component>
 </project>

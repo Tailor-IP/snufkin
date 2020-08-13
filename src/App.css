@@ -55,6 +55,7 @@ body {
 .price-details {
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
 }
 
 .gantt_cal_lsection {
@@ -97,7 +98,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding: 14px;
-    padding-bottom: 38px;
+    padding-bottom: 14px;
     min-height: 250px;
 }
 
@@ -113,6 +114,7 @@ body {
 .parents-component {
     margin-left: -10px;
     min-height: 14px;
+    padding-bottom: 10px;
 }
 
 .details-progress {
@@ -199,4 +201,16 @@ body {
 
 .zoom-button {
     margin: 5px 3px;
+}
+
+.view-buttons-section {
+    padding-top: 20px;
+    width: 100%;
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    width: 120px
 }

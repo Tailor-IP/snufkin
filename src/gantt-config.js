@@ -122,8 +122,10 @@ export const initGanttDateFormat = (gantt) => {
 
 export const initLightboxButtons = (gantt, editAllowed) => {
     gantt.attachEvent("onGanttReady", () => {
-        gantt.config.buttons_left = ["gantt_cancel_btn"];
-        gantt.config.buttons_right = editAllowed ? ["gantt_delete_btn", "gantt_save_btn"] : [];
+          gantt.config.buttons_left = [];
+          gantt.config.buttons_right = [];
+//        gantt.config.buttons_left = ["gantt_cancel_btn"];
+//        gantt.config.buttons_right = editAllowed ? ["gantt_delete_btn", "gantt_save_btn"] : [];
         gantt.locale.labels.gantt_cancel_btn = "Close";
     });
 }
