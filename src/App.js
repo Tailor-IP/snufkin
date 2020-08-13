@@ -16,13 +16,9 @@ const App = () => {
                 } catch(e) {
                     console.log("can't parse data: " + event.data);
                 }
-//                if(data && data.type) {
-//                    if (data.type === 'fetch') {
-//                        fetchData(data.id);
-//                    }
-                    if (data.type === 'data') {
-                       setData(data.data);
-                    }
+                if (data.type === 'data') {
+                   setData(data.data);
+                }
 //                    if (data.type === 'update') {
 //                        updateGantt().then(function() {
 //                        sendMsg('saved');
@@ -30,15 +26,18 @@ const App = () => {
 //                    }
         }
         sendMsg('ready');
+        setData(mock);
     }, []);
 
      return (
+     <>
         <div className='snufkin'>
-            <Zoom className='zoom-controller'/>
             <div className="gantt-container">
                 {data ? <Gantt data={data}/> : null}
             </div>
         </div>
+        <Zoom className='zoom-controller'/>
+    </>
      );
     }
 

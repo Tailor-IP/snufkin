@@ -180,4 +180,23 @@ body {
 .zoom-controller {
     display: flex;
     justify-content: flex-end;
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    right: 17px;
+    bottom: 33px;
+    flex-direction: column-reverse;
+    z-index: 10;
+}
+
+.zoom-controller:hover {
+    display: flex;
+}
+
+#root {
+    position: relative;
+}
+
+.zoom-button {
+    margin: 5px 3px;
 }
