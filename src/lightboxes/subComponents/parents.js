@@ -1,18 +1,23 @@
 import React from 'react';
-import {getParents, formatDuration, showTask} from '../../utils';
+import {getParents, showTask} from '../../utils';
 import { Breadcrumb, Button } from 'antd';
+import { useRecoilState } from 'recoil';
+import { selectedTaskState } from '../../store'
 
-const Parents = ({task, selectTask, className = ''}) => {
-    const parents = getParents(task);
+const Parents = ({className = ''}) => {
+    const [selectedTask, selectTask] = useRecoilState(selectedTaskState)
+    const parents = getParents(selectedTask);
     const onTaskClick = (task) => {
+        window.gantt.hideLightbox();
         showTask(task.index);
-        selectTask(task);
+        window.gantt.showLightbox(task.id);
+        selectTask({...task});
     };
 
     return <Breadcrumb className={className}>
-            {parents.map(task =>
-                <Breadcrumb.Item key={task._id}>
-                    <Button className='breadcrumb-button' key={task._id} type="link" onClick={onTaskClick.bind(null, task)}>
+            {parents.map((task) =>
+                <Breadcrumb.Item key={task.index.toString()}>
+                    <Button className='breadcrumb-button' key={task.index.toString()} type="link" onClick={onTaskClick.bind(null, task)}>
                         {task.title}
                     </Button>
                 </Breadcrumb.Item>)

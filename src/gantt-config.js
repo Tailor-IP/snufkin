@@ -1,4 +1,4 @@
-import {formatDuration, formatNumber, getCostString, avg} from './utils';
+import {formatDuration, formatNumber, avg} from './utils';
 
 const lightboxHeight = 250;
 
@@ -88,11 +88,11 @@ const initialColumns = [
     {
     "name": "totalCost",
     "align": "center",
-    label: "Average Cost",
+    label: "Cost",
     "width": 90,
     template: function (task) {
-        const cost = avg(task.minCost, task.maxCost) + parseFloat(task.officialFee)
-        return cost > 0 ? "~ " + formatNumber(avg(task.minCost, task.maxCost) + parseFloat(task.officialFee)) + '$' : '';
+        const cost = parseFloat(avg(task.minCost, task.maxCost)) + parseFloat(task.officialFee)
+        return parseFloat(cost) > 0 ? formatNumber(cost) + '$' : '';
   }},
   {
     "name": "add",
@@ -124,9 +124,7 @@ export const initLightboxButtons = (gantt, editAllowed) => {
     gantt.attachEvent("onGanttReady", () => {
           gantt.config.buttons_left = [];
           gantt.config.buttons_right = [];
-//        gantt.config.buttons_left = ["gantt_cancel_btn"];
-//        gantt.config.buttons_right = editAllowed ? ["gantt_delete_btn", "gantt_save_btn"] : [];
-        gantt.locale.labels.gantt_cancel_btn = "Close";
+          gantt.locale.labels.gantt_cancel_btn = "Close";
     });
 }
 
@@ -167,14 +165,10 @@ export function initLightbox(gantt, editAllowed = false) {
 
     gantt.attachEvent("onBeforeLightbox", function(id) {
         const task = gantt.getTask(id);
-        if (!editAllowed) {
+        if (!task.taskDetails) {
             task.taskDetails = "<div id='task-details'/>"
             task.milestoneDetails = "<div id='milestone-details'/>"
             task.folderDetails = "<div id='folder-details'/>"
-        } else {
-            task.editTaskDetails = "<div id='edit-task-details'/>"
-            task.editMilestoneDetails = "<div id='edit-milestone-details'/>"
-            task.editFolderDetails = "<div id='edit-folder-details'/>"
         }
         return task;
     });

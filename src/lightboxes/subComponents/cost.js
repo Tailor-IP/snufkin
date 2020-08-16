@@ -1,16 +1,44 @@
 import React from 'react';
-import { Statistic} from 'antd';
-import {avg} from '../../utils';
+import {avg, updateBranch} from '../../utils';
+import Cost from './cost-edit';
 
-const Cost = ({task, className = ''}) => {
+const onOfficialFeeUpdate = (initialTask, updatedCost) => {
+    const diff = updatedCost - initialTask.officialFee;
+    updateBranch(initialTask, (task) => {
+        const updatedCost = parseFloat(task.officialFee) + parseFloat(diff);
+        const newTask = {...task,
+            officialFee: updatedCost,
+            official_fee: updatedCost,
+        }
+        window.gantt.updateTask(task.id, newTask);
+    });
+}
+
+const onAttorneyFeeUpdate = (initialTask, updatedCost) => {
+    const diff = updatedCost - avg(initialTask.minCost, initialTask.maxCost);
+    updateBranch(initialTask, (task) => {
+        const updatedMinCost = parseFloat(task.minCost) + parseFloat(diff);
+        const updatedMaxCost = parseFloat(task.maxCost) + parseFloat(diff);
+
+        const newTask = {...task,
+            minCost: updatedMinCost,
+            min_attorney_fee: updatedMinCost,
+            maxCost: updatedMaxCost,
+            max_attorney_fee: updatedMaxCost
+        }
+        window.gantt.updateTask(task.id, newTask);
+    });
+}
+
+const CostComponent = ({task, className = '', editable = true}) => {
     const attorneyFee = avg(task.minCost, task.maxCost) || 0;
     const officialFee = task.officialFee;
     const total = parseFloat(attorneyFee) + parseFloat(officialFee);
     return <div className={`price-details ${className}`}>
-           {parseFloat(attorneyFee) ? <Statistic title="Average Attorney Fee" value={attorneyFee} precision={2} prefix={'$ ~'} /> : null}
-           {parseFloat(officialFee) ? <Statistic title="Official Fee" value={officialFee} precision={2} prefix={'$'} /> : null}
-           {parseFloat(total) ? <Statistic title="Total" value={total} precision={2} prefix={'$'} /> : null}
+               <Cost title="Attorney Fee" value={attorneyFee} editable={editable} onChange={onAttorneyFeeUpdate.bind(null, task)}/>
+               <Cost title="Official Fee" value={officialFee} onChange={onOfficialFeeUpdate.bind(null, task)} editable={editable}/>
+               <Cost title="Total" value={total} editable={false}/>
            </div>
 }
 
-export default Cost;
+export default CostComponent;

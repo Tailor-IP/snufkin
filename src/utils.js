@@ -1,6 +1,6 @@
 export function formatNumber(num) {
     const factor = num > 1000 ? 100 : 10;
-    return (Math.round(parseInt(num, 10)/factor) * factor).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return Math.round((parseInt(num, 10)/factor) * factor).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 export function formatFloat(num) {
@@ -36,7 +36,7 @@ export function getCostString(minCost, maxCost, officialFee) {
     return "~ " + formatNumber((parseFloat(minCost) + parseFloat(maxCost))/2 + parseFloat(officialFee)) + '$';
 }
 
-export const avg = (n1, n2) =>(parseFloat(n1) + parseFloat(n2)) / 2
+export const avg = (n1, n2) => ((parseFloat(n1) + parseFloat(n2)) / 2).toFixed(2);
 
 export const getParents = (task) => {
     const parents = [];
@@ -52,4 +52,9 @@ export const getParents = (task) => {
 
 export const showTask = (id) => {
     window.gantt.showTask(id);
+}
+
+export const updateBranch = (task, callback) => {
+    const branch = [task].concat(getParents(task))
+    branch.forEach(callback);
 }

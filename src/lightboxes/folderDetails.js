@@ -11,7 +11,7 @@ const FolderDetails = ({task, selectTask}) => {
                 <Summary task={task} selectTask={selectTask}/>
                 <Progress task={task} className='details-progress'/>
             </div>
-            <Cost task={task} />
+            <Cost task={task} editable={false}/>
 
             <div className='view-buttons-section'>
                 <Buttons.Close className='read-close'/>

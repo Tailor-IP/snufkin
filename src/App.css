@@ -22,7 +22,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -129,12 +128,12 @@ body {
 
 .milestone-icon {
     font-size: 42px;
+    margin-right: 20px;
     color: black;
 }
 
-.milestone-title {
+.milestone-title > .summary-title {
     font-size: 28px;
-    padding: 0 20px;
     color: #000000de;
 }
 
@@ -159,6 +158,7 @@ body {
 }
 
 .gantt_cal_light {
+    min-height: 250px;
     height: fit-content !important;
     top: 15% !important;
 }
@@ -214,3 +214,75 @@ body {
 .button {
     width: 120px
 }
+
+.cost-edit-title {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.edit-cost {
+    display: flex;
+    align-items: flex-end;
+    min-width: 100px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.edit-button {
+    margin-left: 8px;
+    height: 30px;
+    color: #7d7b7bf2;
+}
+
+.cost-edit {
+}
+
+.cost-edit-switch {
+    font-size: 12px;
+}
+
+.ant-statistic-title, .cost-edit-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ant-statistic-content {
+    font-size: 20px;
+}
+
+.ant-input-number-input-wrap > input {
+    padding-left: 5px;
+    height: 28px;
+}
+
+.display-cost {
+    min-width: 90px;
+}
+
+.gantt_milestone > .gantt_task_content::after  {
+   font-family: "Font Awesome 5 Free";
+   content: "\f005";
+   display: block;
+   text-indent: 0;
+ }
+
+ .gantt_milestone > .gantt_task_content {
+    background: #00abff !important;
+    transform: none !important;
+    color: #e6f7ff !important;
+    font-size: 14px;
+    border: #009fed 1px solid !important;
+ }
+
+ .title-edit {
+    display: flex;
+    align-items: center;
+    min-width: 230px;
+    justify-content: space-between;
+ }
+
+ .title-input {
+    padding-left: 5px;
+ }

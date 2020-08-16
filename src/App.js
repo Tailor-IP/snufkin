@@ -3,6 +3,7 @@ import Gantt from './gantt';
 import {Zoom} from './controllers';
 import {sendMsg} from './connection-utils';
 import './App.css';
+import { RecoilRoot } from 'recoil';
 
 import {data as mock} from './mock-data';
 
@@ -30,14 +31,14 @@ const App = () => {
     }, []);
 
      return (
-     <>
+     <RecoilRoot>
         <div className='snufkin'>
             <div className="gantt-container">
                 {data ? <Gantt data={data}/> : null}
             </div>
         </div>
         <Zoom className='zoom-controller'/>
-    </>
+    </RecoilRoot>
      );
     }
 

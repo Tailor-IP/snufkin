@@ -3,12 +3,12 @@ import {portal} from '../hocs';
 import {Progress, Cost, Summary} from './subComponents';
 import Buttons from './buttons';
 
-const TaskDetails = ({task, selectTask}) => {
+const TaskDetails = ({task}) => {
     if (!task) return null;
 
     return <div className='details-lightbox'>
             <div className='details-collection'>
-                <Summary task={task} selectTask={selectTask}/>
+                <Summary task={task} />
                 <Progress task={task} className='details-progress'/>
             </div>
             <Cost task={task} />
