@@ -18,7 +18,7 @@ const App = () => {
                     console.log("can't parse data: " + event.data);
                 }
                 if (data.type === 'data') {
-                   setData(data.data);
+                   setData(JSON.parse(data.data));
                    sendMsg('done')
                 }
 //                    if (data.type === 'update') {
@@ -27,7 +27,7 @@ const App = () => {
 //                        });
 //                    }
         }
-        setData(mock);
+//        setData(mock);
         sendMsg('ready');
     }, []);
 
