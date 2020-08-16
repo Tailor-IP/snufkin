@@ -19,6 +19,7 @@ const App = () => {
                 }
                 if (data.type === 'data') {
                    setData(data.data);
+                   sendMsg('done')
                 }
 //                    if (data.type === 'update') {
 //                        updateGantt().then(function() {
@@ -26,8 +27,8 @@ const App = () => {
 //                        });
 //                    }
         }
-        sendMsg('ready');
         setData(mock);
+        sendMsg('ready');
     }, []);
 
      return (
