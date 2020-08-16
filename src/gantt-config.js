@@ -174,8 +174,13 @@ export function initLightbox(gantt, editAllowed = false) {
     });
 }
 
+const removeDefaultKeyShortcuts = (gantt) => {
+    gantt.keys = {}
+}
+
 export const initConfig = (gantt, editAllowed = false) => {
     setZoomConfig(gantt);
+    removeDefaultKeyShortcuts(gantt);
     setColumns(gantt, editAllowed);
     initGanttDateFormat(gantt);
     initLightbox(gantt, editAllowed)
