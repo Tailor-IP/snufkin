@@ -29,8 +29,9 @@ const App = () => {
 //                        });
 //                    }
         }
-//        setData(mock);
         sendMsg('ready');
+        console.log('sent ready')
+        setData(mock);
     }, []);
 
      return (
