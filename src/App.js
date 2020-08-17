@@ -4,11 +4,14 @@ import {Zoom} from './controllers';
 import {sendMsg} from './connection-utils';
 import './App.css';
 import { RecoilRoot } from 'recoil';
-//import {data as mock} from './mock-data';
+import {data as mock} from './mock-data';
 import {getSnapshot} from './utils';
+import {editable} from './store';
+import {useSetRecoilState} from 'recoil';
 
 const App = () => {
     const [data, setData] = useState(null);
+    const setEditPermissions = useSetRecoilState(editable);
     useEffect(() => {
         window.onmessage = (event) => {
                 let data = event.data;
@@ -20,13 +23,14 @@ const App = () => {
                 if (data.type === 'data') {
                    console.log('got data');
                    setData(data.data);
+                   setEditPermissions(data.editable || false)
                    sendMsg('done')
                 }
                 if (data.type === 'getSnapshot') {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-//        setData(mock);
+        setData(mock);
     }, []);
 
      return (

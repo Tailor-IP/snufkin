@@ -5,3 +5,7 @@ export const selectedTaskState = atom({
   default: null,
 });
 
+export const editable = atom({
+  key: 'editable',
+  default: false,
+});

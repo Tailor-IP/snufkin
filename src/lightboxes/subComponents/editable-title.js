@@ -1,10 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {useEdit} from '../hooks';
 import { Input } from 'antd';
-import { selectedTaskState } from '../../store'
-import { useSetRecoilState } from 'recoil';
+import { selectedTaskState, editable } from '../../store'
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 
-const DisplayTitle = ({title}) => <div className='summary-title'>{title}</div>
+const DisplayTitle = ({task}) => <div className='summary-title'>{task.title}</div>
 
 const EditableTitle = ({task, className = ''}) => {
     const selectTask = useSetRecoilState(selectedTaskState);
@@ -37,4 +37,9 @@ const EditableTitle = ({task, className = ''}) => {
 }
 
 
-export default EditableTitle;
+const Title = (props) => {
+    const isEditable = useRecoilValue(editable);
+    return isEditable ? <EditableTitle {...props} /> : <DisplayTitle {...props} />
+}
+
+export default Title;

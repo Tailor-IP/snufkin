@@ -1,8 +1,8 @@
 import React, {useState, useRef, useEffect, forwardRef} from 'react';
 import { InputNumber, Statistic } from 'antd';
 import {useEdit} from '../hooks';
-import { selectedTaskState } from '../../store'
-import { useRecoilState } from 'recoil';
+import { selectedTaskState, editable } from '../../store'
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 const noop = () => {};
 
@@ -50,8 +50,9 @@ const EditableCost = ({value, title, onChange = noop, className = ''}) => {
         </div>)
 }
 
-const Cost = ({value, title, onChange = noop, className = '', editable = true}) => {
-    return editable ? <EditableCost value={value} title={title} onChange={onChange} /> : <DisplayCost value={value} title={title}/>
+const Cost = ({value, title, onChange = noop, className = ''}) => {
+    const isEditable = useRecoilValue(editable)
+    return isEditable ? <EditableCost value={value} title={title} onChange={onChange} /> : <DisplayCost value={value} title={title}/>
 }
 
 export default Cost
