@@ -4,7 +4,7 @@ import {Zoom} from './controllers';
 import {sendMsg} from './connection-utils';
 import './App.css';
 import { RecoilRoot } from 'recoil';
-import {data as mock} from './mock-data';
+//import {data as mock} from './mock-data';
 import {getSnapshot} from './utils';
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-        setData(mock);
+//        setData(mock);
     }, []);
 
      return (
