@@ -4,8 +4,8 @@ import {Zoom} from './controllers';
 import {sendMsg} from './connection-utils';
 import './App.css';
 import { RecoilRoot } from 'recoil';
-
 import {data as mock} from './mock-data';
+import {getSnapshot} from './utils';
 
 const App = () => {
     const [data, setData] = useState(null);
@@ -18,19 +18,14 @@ const App = () => {
                     console.log("can't parse data: " + event.data);
                 }
                 if (data.type === 'data') {
-                   sendMsg('data', data)
-                   console.log('data', data)
+                   console.log('got data');
                    setData(data.data);
                    sendMsg('done')
                 }
-//                    if (data.type === 'update') {
-//                        updateGantt().then(function() {
-//                        sendMsg('saved');
-//                        });
-//                    }
+                if (data.type === 'getSnapshot') {
+                    sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
+                }
         }
-        sendMsg('ready');
-        console.log('sent ready')
         setData(mock);
     }, []);
 

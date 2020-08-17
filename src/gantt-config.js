@@ -1,6 +1,7 @@
 import {formatDuration, formatNumber, avg} from './utils';
 
 const lightboxHeight = 250;
+export const API_URL = window.location.hostname === "www.tailor-ip.com" ? "https://www.tailor-ip.com/_functions" : "https://www.tailor-ip.com/_functions-dev";
 
 export const setZoomConfig = (gantt) => {
     const zoomConfig = {

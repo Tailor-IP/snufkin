@@ -16,7 +16,7 @@ export const useEdit = (onSave) => {
 
         setEditing(!editing);
         setIcon(editing ? editIcon : saveIcon)
-    }, [editing, onSave]);
+    }, [editIcon, saveIcon, editing, onSave]);
 
         const enterKeyHandle = useCallback((e) => {
              if (e.key === 'Enter') {
@@ -26,7 +26,7 @@ export const useEdit = (onSave) => {
 
                 document.removeEventListener('keypress', enterKeyHandle);
              }
-        }, [setEditing, setIcon, editIcon, onClick]);
+        }, [onClick]);
 
     const getElement = ({className = ''}) => <Button className={`edit-button ${className}`} size='small' onClick={onClick}>{icon}</Button>
     return [editing, getElement];

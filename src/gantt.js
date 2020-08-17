@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import {initConfig} from './gantt-config';
 import {viewComponents} from './lightboxes';
 import { useRecoilState } from 'recoil';
-import { selectedTaskState } from './store'
-const API_URL = window.location.hostname === "www.tailor-ip.com" ? "https://www.tailor-ip.com/_functions" : "https://www.tailor-ip.com/_functions-dev";
+import { selectedTaskState } from './store';
+
 let gantt;
 
 export const Gantt = ({data, onSave}) => {
@@ -11,7 +11,9 @@ export const Gantt = ({data, onSave}) => {
 
     useEffect(() => {
         gantt = window.gantt;
-        initConfig(gantt, false)
+        gantt.clearAll();
+        initConfig(gantt, false);
+        gantt.ext.zoom.setLevel(0);
         window.gantt.parse(data);
         gantt.attachEvent("onLightbox", function(id) {
                setSelectedTask({...window.gantt.getTask(id)});

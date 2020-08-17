@@ -58,3 +58,9 @@ export const updateBranch = (task, callback) => {
     const branch = [task].concat(getParents(task))
     branch.forEach(callback);
 }
+
+export const getSnapshot = () => {
+            const tasks = Object.values(window.gantt.$data.tasksStore.pull);
+            const links = window.gantt.getLinks();
+            return {tasks, links}
+}

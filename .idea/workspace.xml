@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/zoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/zoom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gantt-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gantt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/hooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/hooks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mock-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mock-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,17 +81,17 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="369" y="25" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1368.783@72.27.1368.783" timestamp="1597230014002" />
-    <state x="72" y="155" width="1368" height="522" key="find.popup" timestamp="1597585764815">
+    <state x="72" y="155" width="1368" height="522" key="find.popup" timestamp="1597653061716">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="72" y="155" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1597585764815" />
+    <state x="72" y="155" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1597653061716" />
     <state x="420" y="182" key="run.anything.popup" timestamp="1597523066152">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1597523066152" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1597589360986">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1597653091759">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1597589360985" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1597653091759" />
   </component>
 </project>

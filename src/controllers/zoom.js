@@ -30,8 +30,8 @@ const Zoom = ({className = ''}) => {
     }
 
     return <div className={className} >
-                <Button type="primary" disabled={!zoomInAvailable} className='zoom-button' onClick={zoomIn} icon={<FontAwesomeIcon icon={faPlus} className='zoom-in' size='small'/>} />
-                <Button type="primary" disabled={!zoomOutAvailable} className='zoom-button' onClick={zoomOut} icon={<FontAwesomeIcon icon={faMinus} className='zoom-out' size='small'/>} />
+                <Button type="primary" disabled={!zoomInAvailable} className='zoom-button' onClick={zoomIn} icon={<FontAwesomeIcon icon={faPlus} className='zoom-in'/>} />
+                <Button type="primary" disabled={!zoomOutAvailable} className='zoom-button' onClick={zoomOut} icon={<FontAwesomeIcon icon={faMinus} className='zoom-out'/>} />
            </div>
 }
 
