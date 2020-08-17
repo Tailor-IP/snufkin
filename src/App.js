@@ -18,7 +18,9 @@ const App = () => {
                     console.log("can't parse data: " + event.data);
                 }
                 if (data.type === 'data') {
-                   setData(JSON.parse(data.data));
+                   sendMsg('data', data)
+                   console.log('data', data)
+                   setData(data.data);
                    sendMsg('done')
                 }
 //                    if (data.type === 'update') {
