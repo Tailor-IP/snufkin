@@ -11,7 +11,7 @@ const Parents = ({className = ''}) => {
         window.gantt.hideLightbox();
         showTask(task.index);
         window.gantt.showLightbox(task.id);
-        selectTask({...task});
+        selectTask(task);
     };
 
     return <Breadcrumb className={className}>

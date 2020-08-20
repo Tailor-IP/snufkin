@@ -4,7 +4,7 @@ import {Zoom} from './controllers';
 import {sendMsg} from './connection-utils';
 import './App.css';
 import { RecoilRoot } from 'recoil';
-import {data as mock} from './mock-data';
+import {data3 as mock} from './mock-data';
 import {getSnapshot} from './utils';
 import {editable} from './store';
 import {useSetRecoilState} from 'recoil';

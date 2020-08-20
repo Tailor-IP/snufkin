@@ -22,9 +22,7 @@ export const Gantt = ({data, onSave}) => {
                 setSelectedTask(null)
             })
     }, [data, setSelectedTask]);
-
      return <>
-        <div id="ganttDiv"></div>
         {selectedTask ? viewComponents.map((Component, idx)=> <Component task={selectedTask} key={selectedTask.id + idx.toString()} selectTask={setSelectedTask}/>) : null}
      </>
 }
