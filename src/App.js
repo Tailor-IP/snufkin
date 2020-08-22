@@ -31,7 +31,7 @@ const App = () => {
                 }
         }
         setEditPermissions(false)
-        setData(mock);
+//        setData(mock);
     }, [setEditPermissions]);
 
      return (
