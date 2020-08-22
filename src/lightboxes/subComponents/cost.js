@@ -1,6 +1,8 @@
 import React from 'react';
 import {avg, updateBranch} from '../../utils';
 import Cost from './cost-edit';
+import { useRecoilValue } from 'recoil';
+import { editable } from '../../store'
 
 const onOfficialFeeUpdate = (initialTask, updatedCost) => {
     const diff = updatedCost - initialTask.officialFee;
@@ -30,13 +32,14 @@ const onAttorneyFeeUpdate = (initialTask, updatedCost) => {
     });
 }
 
-const CostComponent = ({task, className = '', editable = true}) => {
+const CostComponent = ({task, className = ''}) => {
     const attorneyFee = avg(task.minCost, task.maxCost) || 0;
     const officialFee = task.officialFee;
     const total = parseFloat(attorneyFee) + parseFloat(officialFee);
+    const isEditable = useRecoilValue(editable)
     return <div className={`price-details ${className}`}>
-               <Cost title="Attorney Fee" value={attorneyFee} editable={editable} onChange={onAttorneyFeeUpdate.bind(null, task)}/>
-               <Cost title="Official Fee" value={officialFee} onChange={onOfficialFeeUpdate.bind(null, task)} editable={editable}/>
+               <Cost title="Attorney Fee" value={attorneyFee} editable={isEditable} onChange={onAttorneyFeeUpdate.bind(null, task)}/>
+               <Cost title="Official Fee" value={officialFee} onChange={onOfficialFeeUpdate.bind(null, task)} editable={isEditable}/>
                <Cost title="Total" value={total} editable={false}/>
            </div>
 }

@@ -23,26 +23,27 @@ const App = () => {
                 if (data.type === 'data') {
                    console.log('got data');
                    setData(data.data);
-                   setEditPermissions(data.editable || false)
+                   setEditPermissions(true)
                    sendMsg('done')
                 }
                 if (data.type === 'getSnapshot') {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-//        setData(mock);
-    }, []);
+        setEditPermissions(false)
+        setData(mock);
+    }, [setEditPermissions]);
 
      return (
-     <RecoilRoot>
+     <>
         <div className='snufkin'>
             <div className="gantt-container">
                 {data ? <Gantt data={data}/> : null}
             </div>
         </div>
         <Zoom className='zoom-controller'/>
-    </RecoilRoot>
+    </>
      );
     }
 
-export default App;
+export default () => <RecoilRoot><App/></RecoilRoot>

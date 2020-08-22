@@ -8,7 +8,7 @@ const MilestoneSummary = ({task, className = '', editable}) => {
     return <div className={className}>
                 <div className='title-line'>
                     <FontAwesomeIcon icon={faFlagCheckered} className='milestone-icon'/>
-                    <Title className='milestone-title' task={task} editable={editable}/>
+                    <Title className='milestone-title' task={task} />
                 </div>
                 <div className='milestone-date'>{startDate}</div>
            </div>

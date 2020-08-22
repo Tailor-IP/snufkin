@@ -27,7 +27,7 @@ const EditableTitle = ({task, className = ''}) => {
 
     return !editing ? (
         <div className={`title-edit ${className}`}>
-            <DisplayTitle title={task.title} />
+            <DisplayTitle task={task} />
             <Switch />
         </div>) : (
         <div className={`title-edit ${className}`}>

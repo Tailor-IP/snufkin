@@ -7,7 +7,7 @@ gulp.task('default', () => {
 	        .pipe(replace('.js"></script>', '.js" inline></script>'))
 	        .pipe(replace('rel="stylesheet">', 'rel="stylesheet" inline>'))
 	        .pipe(inlinesource({
-			            compress: false,
+			            compress: true,
 			            ignore: ['png']
 			        }))
 	        .pipe(gulp.dest('./build'))
