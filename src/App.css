@@ -260,7 +260,7 @@ body {
     min-width: 90px;
 }
 
-.gantt_milestone > .gantt_task_content::after  {
+.gantt_milestone > .gantt_task_content::before  {
    font-family: "Font Awesome 5 Free";
    content: "\f005";
    display: block;
