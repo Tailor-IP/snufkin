@@ -30,7 +30,7 @@ const App = () => {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-        setData(mock);
+//        setData(mock);
     }, []);
 
      return (
