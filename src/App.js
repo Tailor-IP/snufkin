@@ -23,7 +23,7 @@ const App = () => {
                 if (data.type === 'data') {
                    console.log('got data');
                    setData(data.data);
-                   setEditPermissions(true)
+                   setEditPermissions(data.editable || false)
                    sendMsg('done')
                 }
                 if (data.type === 'getSnapshot') {
