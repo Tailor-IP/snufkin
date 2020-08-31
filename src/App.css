@@ -54,6 +54,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
+    flex-direction: column;
 }
 
 .gantt_cal_lsection {
@@ -216,29 +217,31 @@ body {
 
 .cost-edit-title {
     color: rgba(0, 0, 0, 0.45);
-    font-size: 14px;
+    font-size: 11px;
     padding-bottom: 5px;
 }
 
 .edit-cost {
-    display: flex;
-    align-items: flex-end;
+    align-items: center;
     min-width: 100px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .edit-button {
     margin-left: 8px;
-    height: 30px;
     color: #7d7b7bf2;
 }
 
-.cost-edit {
+.cost-display, .cost-edit {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
 }
 
 .cost-edit-switch {
-    font-size: 12px;
+    font-size: 9px;
+    height: 20px;
 }
 
 .ant-statistic-title, .cost-edit-title {
@@ -254,10 +257,32 @@ body {
 .ant-input-number-input-wrap > input {
     padding-left: 5px;
     height: 28px;
+    font-size: 10px;
+    height: 15px;
+}
+
+.ant-input-number-input-wrap {
+    margin-top: -4px;
 }
 
 .display-cost {
     min-width: 90px;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+.ant-input-number {
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0;
+}
+
+.ant-input-number-focused {
+    border: none;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 0;
+    border-color: #d5d5d5;
+    box-shadow: none;
 }
 
 .gantt_milestone > .gantt_task_content::before  {
@@ -308,4 +333,10 @@ body {
 
  .gantt_row:hover {
      background: rgba(24, 144, 255, 0.3) !important;
+ }
+
+ .total-cost {
+     border-top: 1px dashed #d3d3d3;
+     margin-top: 8px;
+     padding-top: 11px;
  }

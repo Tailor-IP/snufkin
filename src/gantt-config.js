@@ -1,4 +1,4 @@
-import {formatDuration, formatNumber, avg} from './utils';
+import {formatDuration, formatNumber, avg, aggregateTaskCostFields} from './utils';
 
 const lightboxHeight = 250;
 export const API_URL = window.location.hostname === "www.tailor-ip.com" ? "https://www.tailor-ip.com/_functions" : "https://www.tailor-ip.com/_functions-dev";
@@ -92,7 +92,7 @@ const initialColumns = [
     label: "Cost",
     "width": 90,
     template: function (task) {
-        const cost = parseFloat(avg(task.minCost, task.maxCost)) + parseFloat(task.officialFee)
+        const cost = parseFloat(avg(task.minCost, task.maxCost)) + parseFloat(aggregateTaskCostFields(task))
         return parseFloat(cost) > 0 ? formatNumber(cost) + '$' : '';
   }},
   {

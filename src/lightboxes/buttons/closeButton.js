@@ -3,7 +3,7 @@ import {Button} from 'antd';
 
 const CloseButton = ({className = ''}) => {
     const onClose = () => {
-        window.gantt.hideLightbox()
+        window.gantt.hideLightbox();
     }
     return <Button type='primary' className={`button close ${className}`} onClick={onClose}>Close</Button>
 }

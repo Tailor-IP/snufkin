@@ -8,10 +8,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.b11637b0416cce8827b85f469f37e2a1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.6d39d9426df8bd3f5f9416a27e15483f.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.5a4588da.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.927d2adc.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gantt-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/buttons/closeButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/buttons/closeButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/subComponents/cost-edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/subComponents/cost-edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/subComponents/cost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/subComponents/cost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +80,10 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="451" y="211" width="648" height="436" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1368.783@72.27.1368.783" timestamp="1597230012213" />
-    <state x="545" y="167" width="424" height="496" key="FileChooserDialogImpl" timestamp="1597820987032">
+    <state x="545" y="157" width="424" height="496" key="FileChooserDialogImpl" timestamp="1598269351741">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="545" y="167" width="424" height="496" key="FileChooserDialogImpl/72.27.1368.783@72.27.1368.783" timestamp="1597820987032" />
+    <state x="545" y="157" width="424" height="496" key="FileChooserDialogImpl/72.27.1368.783@72.27.1368.783" timestamp="1598269351741" />
     <state x="369" y="22" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598139069567">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
@@ -88,9 +96,9 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1597523066152" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1598123445508">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1598880083511">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1598123445508" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1598880083511" />
   </component>
 </project>

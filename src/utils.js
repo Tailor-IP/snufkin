@@ -4,7 +4,7 @@ export function formatNumber(num) {
 }
 
 export function formatFloat(num) {
-    const splitNum = num.toString().split('.');
+    const splitNum = parseFloat(num).toFixed(2).toString().split('.');
     return [splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, ","), splitNum[1]].join('.');
 }
 
@@ -63,4 +63,15 @@ export const getSnapshot = () => {
             const tasks = Object.values(window.gantt.$data.tasksStore.pull);
             const links = window.gantt.getLinks();
             return {tasks, links}
+}
+
+const fieldsToAggregate = [
+    'officialFee',
+    'associateFee',
+    'unidentifiedFee',
+    'brokerageFee',
+]
+
+export const aggregateTaskCostFields = (task) => {
+    return fieldsToAggregate.reduce((sum, field) => parseFloat(sum) + parseFloat(task[field] || 0) , 0);
 }
