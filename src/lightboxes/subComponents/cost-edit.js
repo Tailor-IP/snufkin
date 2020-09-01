@@ -21,13 +21,14 @@ const CostEdit = forwardRef(({title, value = 0, onChange, className = ''}, ref) 
             </div>
 })
 
-const DisplayCost = ({value, title, showIfEmpty = false, className = '' }) => {
-    return parseFloat(value) >= 0 || showIfEmpty ? (
+const DisplayCost = ({value = 0, title, showIfEmpty = false, className = '' }) => {
+//    return parseFloat(value) || showIfEmpty ? (
+     return (
      <div className={`cost-display ${className}`}>
         <span className='cost-edit-title'>{title}</span>
         <span className='display-cost'>{`$ ${formatFloat(value || 0)}`}</span>
      </div>)
-     : null
+//     : null
 }
 
 const EditableCost = ({value, title, onChange = noop, className = ''}) => {
