@@ -30,8 +30,8 @@ const App = () => {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-        setEditPermissions(true)
-        setData(mock);
+//        setEditPermissions(true)
+//        setData(mock);
     }, [setEditPermissions]);
 
      return (
