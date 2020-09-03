@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Gantt from './gantt';
-import {Zoom} from './controllers';
 import {sendMsg} from './connection-utils';
-import './App.css';
+import './App.scss';
 import { RecoilRoot } from 'recoil';
 import {data3 as mock} from './mock-data';
 import {getSnapshot} from './utils';
-import {editable} from './store';
+import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
-const Snufkin = ({initialData = null}) => {
-    const [data, setData] = useState(initialData);
+const Snufkin = ({tasks, links, selectedTask}) => {
+    const [data, setData] = useState(null);
     const setEditPermissions = useSetRecoilState(editable);
+    const setSelectedTask = useSetRecoilState(selectedTaskState);
+
     useEffect(() => {
         window.onmessage = (event) => {
                 let data = event.data;
@@ -31,8 +32,18 @@ const Snufkin = ({initialData = null}) => {
                 }
         }
 //        setEditPermissions(true)
-//        setData(mock);
+        setData(mock);
     }, [setEditPermissions]);
+
+    useEffect(() => {
+        if (tasks && links) {
+            setData({data: tasks, links})
+        }
+    }, [tasks, links])
+
+    useEffect(() => {
+        setSelectedTask(selectedTask);
+    }, [selectedTask])
 
      return (
      <>
@@ -42,9 +53,8 @@ const Snufkin = ({initialData = null}) => {
                 {data ? <Gantt data={data}/> : null}
             </div>
         </div>
-        <Zoom className='zoom-controller'/>
     </>
      );
     }
 
-export default () => <RecoilRoot><Snufkin/></RecoilRoot>
+export default (props) => <RecoilRoot><Snufkin {...props} /></RecoilRoot>

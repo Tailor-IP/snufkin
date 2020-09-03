@@ -168,7 +168,7 @@ export function initLightbox(gantt, editAllowed = false) {
         const task = gantt.getTask(id);
         if (!task.taskDetails) {
             task.taskDetails = "<div id='task-details'/>"
-            task.milestoneDetails = "<div id='milestone-details'/>"
+            task.milestoneDetails = "<div id='milestone-details' class='snufkin'/>"
             task.folderDetails = "<div id='folder-details'/>"
         }
         return task;
