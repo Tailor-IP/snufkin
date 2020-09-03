@@ -14,7 +14,6 @@
     "@testing-library/user-event": "^7.2.1",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "antd": "^4.5.3",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.1.0",
@@ -48,10 +47,8 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
-    "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
-    "react-dom": "^16.13.1",
     "recoil": "0.0.10",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -66,11 +63,16 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1"
   },
+  "peerDependencies": {
+    "antd": "^4.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "deploy": "gh-pages -d build",
-    "test-build": "webpack --config ./webpack.config.js",
+    "build-npm": "NODE_ENV=production webpack --config ./webpack.config.js",
     "predeploy": "npm run build",
     "test": "node scripts/test.js"
   },
@@ -100,7 +102,7 @@
     "webpack-cli": "^3.3.12"
   },
   "description": "![snufkin-about](https://user-images.githubusercontent.com/31623188/90013336-be658a80-dcad-11ea-9bc3-820e576ff73d.jpg)",
-  "main": "dist/index.js",
+  "main": "snufkin.js",
   "directories": {
     "doc": "docs"
   },
