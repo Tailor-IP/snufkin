@@ -9,8 +9,8 @@ import {getSnapshot} from './utils';
 import {editable} from './store';
 import {useSetRecoilState} from 'recoil';
 
-const App = () => {
-    const [data, setData] = useState(null);
+const Snufkin = ({initialData = null}) => {
+    const [data, setData] = useState(initialData);
     const setEditPermissions = useSetRecoilState(editable);
     useEffect(() => {
         window.onmessage = (event) => {
@@ -37,6 +37,7 @@ const App = () => {
      return (
      <>
         <div className='snufkin'>
+            <div id="ganttDiv"></div>
             <div className="gantt-container">
                 {data ? <Gantt data={data}/> : null}
             </div>
@@ -46,4 +47,4 @@ const App = () => {
      );
     }
 
-export default () => <RecoilRoot><App/></RecoilRoot>
+export default () => <RecoilRoot><Snufkin/></RecoilRoot>
