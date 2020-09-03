@@ -46,5 +46,19 @@
     "gulp-font-awesome-icons": "^1.1.0",
     "gulp-inline-source": "^4.0.0",
     "gulp-replace": "^1.0.0"
+  },
+  "description": "![snufkin-about](https://user-images.githubusercontent.com/31623188/90013336-be658a80-dcad-11ea-9bc3-820e576ff73d.jpg)",
+  "main": "snufkin.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tailor-IP/snufkin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tailor-IP/snufkin/issues"
   }
 }
