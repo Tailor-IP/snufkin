@@ -1,5 +1,5 @@
 .gantt_cal_light {
-    min-height: 250px;
+    min-height: 350px;
     height: fit-content !important;
     top: 15% !important;
     border-radius: 2px;
@@ -9,6 +9,7 @@
 		justify-content: space-between;
 		padding-top: 20px;
 		flex-direction: column;
+		min-height: 150px;
 	}
 	.details-title {
 		padding: 6px 7px;
@@ -17,6 +18,7 @@
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		min-height: 100px;
         padding-left: 17px;
 	}
 	.summary-title {
@@ -205,14 +207,13 @@
 
 .snufkin {
 	position: relative;
+	height: 100%;
 	.gantt-container {
 		overflow: auto;
 	}
-	body {
-		height: 100vh;
-	}
+
 	#ganttDiv {
-		height: 100vh;
+		height: 100%;
 	}
 
 

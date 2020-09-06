@@ -3,7 +3,7 @@ import {portal} from '../hocs';
 import {Cost, MilestoneSummary} from './subComponents';
 import Buttons from './buttons';
 
-const TaskDetails = ({task, selectTask}) => {
+const TaskDetails = ({task = {}, selectTask}) => {
     if (!task) return null;
 
     return <div className='milestone-details-lightbox'>

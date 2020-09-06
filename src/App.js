@@ -4,11 +4,11 @@ import {sendMsg} from './connection-utils';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
 import {data3 as mock} from './mock-data';
-import {getSnapshot, showTask} from './utils';
+import {getSnapshot} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
-const Snufkin = ({tasks, links, selectedTask}) => {
+const Snufkin = ({tasks = mock.tasks, links = mock.links, selectedTask}) => {
     const [data, setData] = useState(null);
     const setEditPermissions = useSetRecoilState(editable);
     const setSelectedTask = useSetRecoilState(selectedTaskState);
@@ -42,16 +42,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
     }, [tasks, links])
 
     useEffect(() => {
-        if (tasks && selectedTask && selectedTask.index) {
-            try {
-                window.gantt.hideLightbox();
-            } catch (e) {
-            }
-            showTask(selectedTask.index);
-            window.gantt.showLightbox(selectedTask.id);
-            setSelectedTask(selectedTask);
-        }
-    }, [tasks, selectedTask])
+        setSelectedTask(selectedTask);
+    }, [selectedTask])
 
      return (
      <>
