@@ -8,7 +8,7 @@ import {getSnapshot} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
-const Snufkin = ({tasks = mock.tasks, links = mock.links, selectedTask = mock.tasks[44]}) => {
+const Snufkin = ({tasks, links, selectedTask}) => {
     const [data, setData] = useState(null);
     const setEditPermissions = useSetRecoilState(editable);
     const setSelectedTask = useSetRecoilState(selectedTaskState);
