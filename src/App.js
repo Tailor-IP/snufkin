@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Gantt from './gantt';
 import {sendMsg} from './connection-utils';
-import 'antd/dist/antd.css';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
 import {data3 as mock} from './mock-data';
@@ -33,7 +32,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                 }
         }
 //        setEditPermissions(true)
-//        setData(mock);
+        setData(mock);
     }, [setEditPermissions]);
 
     useEffect(() => {
@@ -43,13 +42,16 @@ const Snufkin = ({tasks, links, selectedTask}) => {
     }, [tasks, links])
 
     useEffect(() => {
-        if (selectedTask && selectedTask.index) {
-            window.gantt.hideLightbox();
+        if (tasks && selectedTask && selectedTask.index) {
+            try {
+                window.gantt.hideLightbox();
+            } catch (e) {
+            }
             showTask(selectedTask.index);
             window.gantt.showLightbox(selectedTask.id);
             setSelectedTask(selectedTask);
         }
-    }, [selectedTask])
+    }, [tasks, selectedTask])
 
      return (
      <>
