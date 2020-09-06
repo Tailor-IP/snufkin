@@ -4,7 +4,7 @@ import {viewComponents} from './lightboxes';
 import { useRecoilState } from 'recoil';
 import { selectedTaskState } from './store';
 import {Zoom} from './controllers';
-import {showTask} from './utils';
+import {showTask, updateBranch} from './utils';
 
 let gantt;
 
@@ -34,6 +34,13 @@ export const Gantt = ({data, onSave}) => {
                     gantt.hideLightbox();
                     setLastShown(selectedTask);
                     showTask(selectedTask.index);
+                    gantt.$data.tasksStore.select(selectedTask.index);
+                    updateBranch(selectedTask, (task) => {
+                            if(task.isFolder) {
+                                const newTask = {...task, $open: true};
+                                window.gantt.updateTask(task.id, newTask);
+                            }
+                        })
                     window.gantt.showLightbox(selectedTask.id);
                 }
             }
