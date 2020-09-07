@@ -117,7 +117,7 @@ export const initGanttDateFormat = (gantt) => {
     gantt.config.date_format = "%Y-%m-%d";
     const cfg = gantt.config;
     const strToDate = gantt.date.str_to_date(cfg.date_format, cfg.server_utc);
-    gantt.templates.parse_date = (date) => strToDate(date.slice(0, 10));
+    gantt.templates.parse_date = (date = '') => strToDate(date.slice(0, 10));
     gantt.templates.grid_date_format = (date, column) => gantt.date.date_to_str("%d/%m/%Y")(date);
 }
 

@@ -36,6 +36,9 @@ const Snufkin = ({tasks, links, selectedTask}) => {
     }, [setEditPermissions]);
 
     useEffect(() => {
+        console.log('tasks', tasks);
+        console.log('links', links);
+
         if (tasks && links) {
             setData({data: tasks, links})
         }
