@@ -1,11 +1,15 @@
 import React from 'react';
 import {Button} from 'antd';
 import {selectedTaskState} from '../../store';
-import {useSetRecoilState} from 'recoil';
+import {useRecoilState} from 'recoil';
 
 const CloseButton = ({className = ''}) => {
-    const setSelectedTask = useSetRecoilState(selectedTaskState)
+    const [selected, setSelectedTask] = useRecoilState(selectedTaskState)
     const onClose = () => {
+        const updated =  {...window.gantt.getTask(selected.id)};
+        updated.$source = [].concat(updated.$source);
+        updated.$target = [].concat(updated.$target);
+        window.gantt.updateTask(selected.id, updated);
         window.gantt.hideLightbox();
         setSelectedTask(null);
     }

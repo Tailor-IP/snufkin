@@ -173,18 +173,46 @@ export function initLightbox(gantt, editAllowed = false) {
         }
         return task;
     });
+
+    gantt.attachEvent("onTaskCreated", function(task) {
+        gantt.addTask(task)
+        console.log('on create')
+        return false;
+    })
+
+    gantt.attachEvent("onAfterTaskAdd", function(id, task) {
+       task.index = task.id;
+       task.title = task.text;
+       task.minCost = 0;
+       task.maxCost = 0;
+       task['$source'] = [];
+       task.['$target'] = [];
+       gantt.showLightbox(id);
+//       setTimeout(() => gantt.showLightbox(id), 0)
+    });
+
 }
 
 const removeDefaultKeyShortcuts = (gantt) => {
     gantt.keys = {}
 }
 
+const setPlugins = (gantt) => {
+    gantt.plugins({
+        auto_scheduling: true
+    });
+
+    gantt.config.auto_scheduling = true;
+
+}
+
 export const initConfig = (gantt, editAllowed = false) => {
     setZoomConfig(gantt);
+//    setPlugins(gantt);
     removeDefaultKeyShortcuts(gantt);
     setColumns(gantt, editAllowed);
     initGanttDateFormat(gantt);
-    initLightbox(gantt, editAllowed)
-    initLightboxButtons(gantt, editAllowed);
+    initLightbox(gantt)
+    initLightboxButtons(gantt);
     gantt.init("ganttDiv");
 }
