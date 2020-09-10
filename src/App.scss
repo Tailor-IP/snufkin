@@ -202,6 +202,15 @@
 		align-items: center;
         width: 100%;
 	}
+
+	.editable-buttons {
+	    width: 100%;
+        display: flex;
+        justify-content: space-between;
+	}
+	.delete-button {
+
+	}
 }
 
 

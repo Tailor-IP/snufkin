@@ -14,7 +14,7 @@ const FolderDetails = ({task, selectTask}) => {
             <Cost task={task} editable={false}/>
 
             <div className='view-buttons-section'>
-                <Buttons.Close className='read-close'/>
+                <Buttons.Default id={task.id}/>
             </div>
         </div>
 }

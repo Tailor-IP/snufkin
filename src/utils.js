@@ -75,3 +75,38 @@ const fieldsToAggregate = [
 export const aggregateTaskCostFields = (task) => {
     return fieldsToAggregate.reduce((sum, field) => parseFloat(sum) + parseFloat(task[field] || 0) , 0);
 }
+
+export const findChildren = (id) => Object.values(window.gantt.$data.tasksStore.pull).filter(task => task.parent === id);
+
+export const deleteTask = (id) => {
+    const task = window.gantt.getTask(id);
+    if (!task) return
+
+    const children = findChildren(id);
+    const parent = task.parent;
+
+    children.forEach(task => {
+        window.gantt.updateTask(task.id, {...task, parent})
+    });
+
+    if(!task.isFolder) {
+        reductTaskCostFromParents(task);
+    }
+
+    window.gantt.deleteTask(id);
+}
+
+const reductTaskCostFromParents = (task) => {
+    const parents = getParents(task);
+    const costEntries = Object.entries(task).filter(([key, value]) => (key.toLowerCase().includes('fee') || key.includes('Cost')) && value);
+
+    console.log(costEntries, parents);
+
+    parents.forEach(parent => {
+        const updated = {...parent};
+        costEntries.forEach(([key, value]) => {
+            updated[key] = updated[key] - value;
+        });
+        window.gantt.updateTask(parent.id, updated)
+    })
+}

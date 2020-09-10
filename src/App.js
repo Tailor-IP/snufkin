@@ -31,8 +31,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-        setEditPermissions(true)
-        setData(mock);
+//        setEditPermissions(true)
+//        setData(mock);
     }, [setEditPermissions]);
 
     useEffect(() => {

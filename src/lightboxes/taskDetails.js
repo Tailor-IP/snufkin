@@ -13,7 +13,7 @@ const TaskDetails = ({task}) => {
             </div>
             <Cost task={task} />
             <div className='view-buttons-section'>
-                <Buttons.Close className='read-close'/>
+                <Buttons.Default id={task.id}/>
             </div>
         </div>
 }
