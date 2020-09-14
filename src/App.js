@@ -32,12 +32,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                 }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
-                setEditPermissions(true)
-                const tasks = mock.tasks;
-                console.log('tasks', tasks)
-                const updated = tasks.forEach(t => t.start_date = new Date(t.start_date).toISOString().slice(0, 10));
-                window.originalTasks = {...updated};
-                setData(mock);
+//                setEditPermissions(true)
+//                setData(mock);
 //        }
     }, [setEditPermissions]);
 

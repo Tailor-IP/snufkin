@@ -19,7 +19,9 @@ export const Gantt = ({data, onSave}) => {
         gantt.clearAll();
         initConfig(gantt, isEditable);
         gantt.ext.zoom.setLevel(0);
+        gantt.config.date_format = "%Y-%m-%d";
         window.gantt.parse(data);
+        Object.values(data.tasks).forEach(t => gantt.addTask(t, t.parent))
         gantt.attachEvent("onLightbox", function(id) {
                setSelectedTask(window.gantt.getTask(id));
             })
@@ -46,8 +48,6 @@ export const Gantt = ({data, onSave}) => {
                 }
             }
         }, [initialized, selectedTask, lastShown])
-
-        console.log('selectedTask', selectedTask)
 
      return <>
         {selectedTask ? viewComponents.map((Component, idx)=> <Component task={selectedTask} key={selectedTask.id + idx.toString()} selectTask={setSelectedTask}/>) : null}

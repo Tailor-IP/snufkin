@@ -113,7 +113,7 @@ const setColumns = (gantt, allowEdit) => {
  }
 
 export const initGanttDateFormat = (gantt) => {
-    gantt.config.xml_date = "%Y-%m-%d";
+    gantt.config.date_format     = "%Y-%m-%d";
     gantt.config.date_format = "%Y-%m-%d";
     const cfg = gantt.config;
     const strToDate = gantt.date.str_to_date(cfg.date_format, cfg.server_utc);
@@ -175,18 +175,20 @@ export function initLightbox(gantt, editAllowed = false) {
     });
 
     gantt.attachEvent("onTaskCreated", function(task) {
+        task['$new'] = true;
         gantt.addTask(task)
-        console.log('on create')
         return false;
     })
 
     gantt.attachEvent("onAfterTaskAdd", function(id, task) {
+       if (!task.$new) return
        task.index = task.id;
        task.title = task.text;
        task.minCost = 0;
        task.maxCost = 0;
        task['$source'] = [];
        task.['$target'] = [];
+       task['$new'] = false;
        gantt.showLightbox(id);
 //       setTimeout(() => gantt.showLightbox(id), 0)
     });
