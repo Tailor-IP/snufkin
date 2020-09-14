@@ -208,7 +208,7 @@ const setPlugins = (gantt) => {
 
 export const initConfig = (gantt, editAllowed = false) => {
     setZoomConfig(gantt);
-//    setPlugins(gantt);
+    setPlugins(gantt);
     removeDefaultKeyShortcuts(gantt);
     setColumns(gantt, editAllowed);
     initGanttDateFormat(gantt);

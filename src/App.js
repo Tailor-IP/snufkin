@@ -3,7 +3,7 @@ import Gantt from './gantt';
 import {sendMsg} from './connection-utils';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
-import {data3 as mock} from './mock-data';
+import {data5 as mock} from './mock-data';
 import {getSnapshot} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
@@ -31,8 +31,14 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                     sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
                 }
         }
-//        setEditPermissions(true)
-//        setData(mock);
+//        if (window.location.pathname.split('/').includes('test')) {
+                setEditPermissions(true)
+                const tasks = mock.tasks;
+                console.log('tasks', tasks)
+                const updated = tasks.forEach(t => t.start_date = new Date(t.start_date).toISOString().slice(0, 10));
+                window.originalTasks = {...updated};
+                setData(mock);
+//        }
     }, [setEditPermissions]);
 
     useEffect(() => {

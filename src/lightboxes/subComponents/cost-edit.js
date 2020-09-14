@@ -13,7 +13,7 @@ const CostEdit = forwardRef(({title, value = 0, onChange, className = ''}, ref) 
             <InputNumber
                   ref={ref}
                   min={0}
-                  value={value ? value : ''}
+                  value={parseFloat(value) ? value : ''}
                   formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                   parser={value => value.replace(/\$\s?|(,*)/g, '')}
                   onChange={onChange}
@@ -40,17 +40,18 @@ const EditableCost = ({value, title, onChange = noop, className = ''}) => {
         });
 
     const inputRef = useRef();
-    useEffect(() => {
+    useEffect(() => { // focus input on editing
         if (editing && inputRef.current) {
            inputRef.current.focus();
         }
     }, [editing, inputRef])
 
     useEffect(() => () => { // save on close
-        if (editing) {
+        if (editing && !selectedTask) {
+            console.log('inputref', inputRef)
             onChange(cost);
         }
-    }, [cost])
+    }, [cost, editing, onChange, selectedTask])
 
     return editing ? (
     <div className='edit-cost'>

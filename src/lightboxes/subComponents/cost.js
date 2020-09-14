@@ -47,7 +47,7 @@ const getFieldUpdater = (field) => (initialTask, updatedCost) => {
     }
 
 const CostComponent = ({task, className = ''}) => {
-    const attorneyFee = avg(task.minCost, task.maxCost) || 0;
+    const attorneyFee = avg(task.minCost || 0, task.maxCost || 0) || 0;
     const officialFee = task.officialFee;
     const total = parseFloat(attorneyFee) + parseFloat(aggregateTaskCostFields(task));
     const isEditable = useRecoilValue(editable) && !task.isFolder;
