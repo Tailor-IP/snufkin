@@ -1,3 +1,5 @@
+import keyBy from 'lodash/keyBy';
+
 export function formatNumber(num) {
     const factor = num > 1000 ? 100 : 10;
     return Math.round((parseInt(num, 10)/factor) * factor).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -76,7 +78,7 @@ export const aggregateTaskCostFields = (task) => {
     return fieldsToAggregate.reduce((sum, field) => parseFloat(sum) + parseFloat(task[field] || 0) , 0);
 }
 
-export const findChildren = (id) => Object.values(window.gantt.$data.tasksStore.pull).filter(task => task.parent === id);
+export const findChildren = (id) => Object.values(window.gantt.$data.tasksStore.pull).filter(task => task.parentIndex === id);
 
 export const deleteTask = (id) => {
     const task = window.gantt.getTask(id);
@@ -100,8 +102,6 @@ const reductTaskCostFromParents = (task) => {
     const parents = getParents(task);
     const costEntries = Object.entries(task).filter(([key, value]) => (key.toLowerCase().includes('fee') || key.includes('Cost')) && value);
 
-    console.log(costEntries, parents);
-
     parents.forEach(parent => {
         const updated = {...parent};
         costEntries.forEach(([key, value]) => {
@@ -109,4 +109,16 @@ const reductTaskCostFromParents = (task) => {
         });
         window.gantt.updateTask(parent.id, updated)
     })
+}
+
+export const updateChildren = (id, callback) => {
+    const childrenMap = keyBy(window.gantt.getLinks(), 'source');
+    let currentId = childrenMap[id] && childrenMap[id].target || null;
+    let currentTask;
+
+    while (currentId) {
+        currentTask = window.gantt.getTask(currentId);
+        callback(currentTask);
+        currentId = childrenMap[currentId] && childrenMap[currentId].target || null;
+    }
 }

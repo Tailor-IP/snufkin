@@ -39,7 +39,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
 
     useEffect(() => {
         if (tasks && links) {
-            setData({data: tasks, links})
+            setData({tasks, links})
         }
     }, [tasks, links])
 

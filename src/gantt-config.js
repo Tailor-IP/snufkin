@@ -200,12 +200,12 @@ const removeDefaultKeyShortcuts = (gantt) => {
 }
 
 const setPlugins = (gantt) => {
-    gantt.plugins({
-        auto_scheduling: true
-    });
-
-    gantt.config.auto_scheduling = true;
-
+//    gantt.plugins({
+//        auto_scheduling: true
+//    });
+//    gantt.config.auto_scheduling = true;
+//    gantt.config.auto_scheduling_initial = false;
+//    gantt.config.auto_scheduling_move_projects = true;
 }
 
 export const initConfig = (gantt, editAllowed = false) => {

@@ -4,7 +4,7 @@ import {viewComponents} from './lightboxes';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { selectedTaskState, editable } from './store';
 import {Zoom} from './controllers';
-import {showTask, updateBranch} from './utils';
+import {showTask, updateBranch, updateChildren} from './utils';
 
 let gantt;
 
@@ -14,6 +14,20 @@ export const Gantt = ({data, onSave}) => {
     const isEditable = useRecoilValue(editable);
     // used to avoid re-handling already displayed tasks
     const [lastShown, setLastShown] = useState(null);
+
+    useEffect(() => {
+            window.gantt.attachEvent("onBeforeTaskChanged", function(taskId, mode, initial) {
+                const diff = window.gantt.getTask(taskId).start_date - initial.start_date;
+                updateChildren(taskId, (task) => {
+                    console.log(task, diff)
+                    task.start_date = new Date(task.start_date.valueOf() + diff);
+                    task.end_date = new Date(task.end_date.valueOf() + diff);
+                    window.gantt.updateTask(task.id, task);
+                } )
+                return true;
+            });
+    }, [])
+
     useEffect(() => {
         gantt = window.gantt;
         gantt.clearAll();
@@ -21,7 +35,10 @@ export const Gantt = ({data, onSave}) => {
         gantt.ext.zoom.setLevel(0);
         gantt.config.date_format = "%Y-%m-%d";
         window.gantt.parse(data);
-        Object.values(data.tasks).forEach(t => gantt.addTask(t, t.parent))
+
+//        if (data && data.tasks && data.tasks.length) {
+//            Object.values(data.tasks).forEach(t => gantt.addTask(t, t.parent))
+//        }
         gantt.attachEvent("onLightbox", function(id) {
                setSelectedTask(window.gantt.getTask(id));
             })
