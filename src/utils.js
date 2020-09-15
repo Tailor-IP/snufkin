@@ -1,4 +1,4 @@
-import keyBy from 'lodash/keyBy';
+import groupBy from 'lodash/groupBy';
 
 export function formatNumber(num) {
     const factor = num > 1000 ? 100 : 10;
@@ -112,13 +112,20 @@ const reductTaskCostFromParents = (task) => {
 }
 
 export const updateChildren = (id, callback) => {
-    const childrenMap = keyBy(window.gantt.getLinks(), 'source');
-    let currentId = childrenMap[id] && childrenMap[id].target || null;
-    let currentTask;
+    const childrenMap = groupBy(window.gantt.getLinks(), 'source');
+    const _update = (_id) => {
+        const links = childrenMap[_id];
+        if (!links) {
+            return
+        }
 
-    while (currentId) {
-        currentTask = window.gantt.getTask(currentId);
-        callback(currentTask);
-        currentId = childrenMap[currentId] && childrenMap[currentId].target || null;
+        const childrenIds = links.map(link => link.target);
+        delete childrenMap[_id]; // to avoid infinite loop on circular links
+        childrenIds.forEach(childId => {
+            const task = window.gantt.getTask(childId)
+            callback(task);
+            _update(childId);
+        })
     }
+    _update(id);
 }

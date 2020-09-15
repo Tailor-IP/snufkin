@@ -19,7 +19,6 @@ export const Gantt = ({data, onSave}) => {
             window.gantt.attachEvent("onBeforeTaskChanged", function(taskId, mode, initial) {
                 const diff = window.gantt.getTask(taskId).start_date - initial.start_date;
                 updateChildren(taskId, (task) => {
-                    console.log(task, diff)
                     task.start_date = new Date(task.start_date.valueOf() + diff);
                     task.end_date = new Date(task.end_date.valueOf() + diff);
                     window.gantt.updateTask(task.id, task);
