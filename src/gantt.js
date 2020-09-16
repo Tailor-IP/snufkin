@@ -3,7 +3,7 @@ import {initConfig} from './gantt-config';
 import {viewComponents} from './lightboxes';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { selectedTaskState, editable } from './store';
-import {Zoom} from './controllers';
+import {Zoom, UndoRedo} from './controllers';
 import {showTask, updateBranch, updateChildren} from './utils';
 
 let gantt;
@@ -68,6 +68,7 @@ export const Gantt = ({data, onSave}) => {
      return <>
         {selectedTask ? viewComponents.map((Component, idx)=> <Component task={selectedTask} key={selectedTask.id + idx.toString()} selectTask={setSelectedTask}/>) : null}
         <Zoom className='zoom-controller'/>
+        <UndoRedo className='edit-controller'/>
      </>
 }
 

@@ -8,6 +8,12 @@ import {getSnapshot} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
+
+const clearEditHistory = () => {
+    gantt.clearUndoStack();
+    gantt.clearRedoStack();
+}
+
 const Snufkin = ({tasks, links, selectedTask}) => {
     const [data, setData] = useState(null);
     const setEditPermissions = useSetRecoilState(editable);
@@ -25,6 +31,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                    console.log('got data');
                    setData(data.data);
                    setEditPermissions(data.editable || false)
+                   clearEditHistory();
                    sendMsg('done')
                 }
                 if (data.type === 'getSnapshot') {
