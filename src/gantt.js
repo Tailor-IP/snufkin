@@ -4,7 +4,7 @@ import {viewComponents} from './lightboxes';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { selectedTaskState, editable, undoStack, redoStack } from './store';
 import {Zoom, Toolbar} from './controllers';
-import {showTask, updateBranch, updateChildren} from './utils';
+import {showTask, updateBranch, onTaskMove} from './utils';
 
 let gantt;
 
@@ -13,33 +13,36 @@ export const Gantt = ({data, onSave}) => {
     const [undoStackLength, setUndoStack] = useRecoilState(undoStack);
     const [redoStackLength, setRedoStack] = useRecoilState(redoStack);
     const [initialized, setInitialized] = useState(false);
+    const [undoInit, setUndoInit] = useState(false);
     const isEditable = useRecoilValue(editable);
     // used to avoid re-handling already displayed tasks
     const [lastShown, setLastShown] = useState(null);
 
+    // undo-redo
     useEffect(() => {
-        window.gantt.attachEvent("onBeforeRedoStack", function(action) {
-            const stack = window.gantt.getRedoStack();
-            setRedoStack(stack ? stack.length : 0);
-            return true;
-        });
-
         window.gantt.attachEvent("onBeforeUndoStack", function(action) {
-            const stack = window.gantt.getUndoStack();
-            setUndoStack(stack ? stack.length + 1 : 0);
-
+            if (!undoInit) {
+                const stack = window.gantt.getUndoStack();
+                setUndoStack(stack ? stack.length + 1 : 0);
+                setUndoInit(true);
+            }
             return true;
         });
-    })
+    }, [])
+
 
     useEffect(() => {
-            window.gantt.attachEvent("onBeforeTaskChanged", function(taskId, mode, initial) {
-                const diff = window.gantt.getTask(taskId).start_date - initial.start_date;
-                updateChildren(taskId, (task) => {
-                    task.start_date = new Date(task.start_date.valueOf() + diff);
-                    task.end_date = new Date(task.end_date.valueOf() + diff);
-                    window.gantt.updateTask(task.id, task);
-                } )
+        window.gantt.ext.inlineEditors.attachEvent("onEditEnd", function(state){
+            debugger
+           return true;
+        });
+    }, [])
+
+
+    // auto-schedule
+    useEffect(() => {
+            window.gantt.attachEvent("onBeforeTaskChanged", (taskId, mode, initial) => {
+                onTaskMove(initial, window.gantt.getTask(taskId).start_date);
                 return true;
             });
     }, [])

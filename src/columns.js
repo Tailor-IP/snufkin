@@ -39,7 +39,7 @@ export const defaultColumns = [
        ];
 
 
-const inlineEditColumns = [
+export const inlineEditColumns = [
          {
            "name": "text",
            "tree": true,
@@ -62,7 +62,32 @@ const inlineEditColumns = [
            editor: {type: "number", map_to: "duration", min:0},
            template: function (task) {
                return formatDuration(task.duration);
-         }},
+           },
+         },
+          {
+            "name": "associateFee",
+            label: "Associate Fee",
+            "align": "center",
+            "resize": true,
+            "width": 90,
+            editor: {type: "number", map_to: "associateFee", min:0},
+            },
+         {
+           "name": "brokerageFee",
+           label: "Brokerage Fee",
+           "align": "center",
+           "resize": true,
+           "width": 90,
+           editor: {type: "number", map_to: "brokerageFee", min:0},
+           },
+          {
+           "name": "unidentifiedFee",
+           label: "Unidentified Fee",
+           "align": "center",
+           "resize": true,
+           "width": 90,
+           editor: {type: "number", map_to: "unidentifiedFee", min:0},
+           },
            {
            "name": "totalCost",
            "align": "center",

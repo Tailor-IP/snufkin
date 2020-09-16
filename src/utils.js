@@ -129,3 +129,70 @@ export const updateChildren = (id, callback) => {
     }
     _update(id);
 }
+
+export const onTaskMove = (initial, updatedStartDate) => {
+    const diff = updatedStartDate - initial.start_date;
+    updateChildren(initial.id, (task) => {
+        task.start_date = new Date(task.start_date.valueOf() + diff);
+        task.end_date = new Date(task.end_date.valueOf() + diff);
+        window.gantt.updateTask(task.id, task);
+    });
+}
+
+export const getFieldUpdater = (field) => (initialTask, updatedCost) => {
+    const initialCost = initialTask[field] || 0;
+    const diff = updatedCost - initialCost;
+        updateBranch(initialTask, (task) => {
+            const initialTaskCost = task[field] || 0;
+            const updatedCost = parseFloat(initialTaskCost) + parseFloat(diff);
+            const newTask = {...task,
+                [field]: updatedCost,
+            }
+            window.gantt.updateTask(task.id, newTask);
+        });
+    }
+
+export const onOfficialFeeUpdate = (initialTask, updatedCost) => {
+    const diff = updatedCost - initialTask.officialFee;
+    updateBranch(initialTask, (task) => {
+        const updatedCost = parseFloat(task.officialFee) + parseFloat(diff);
+        const newTask = {...task,
+            officialFee: updatedCost,
+            official_fee: updatedCost,
+        }
+        window.gantt.updateTask(task.id, newTask);
+    });
+}
+
+export const onAttorneyFeeUpdate = (initialTask, updatedCost) => {
+    const diff = updatedCost - avg(initialTask.minCost, initialTask.maxCost);
+    updateBranch(initialTask, (task) => {
+        const updatedMinCost = parseFloat(task.minCost) + parseFloat(diff);
+        const updatedMaxCost = parseFloat(task.maxCost) + parseFloat(diff);
+
+        const newTask = {...task,
+            minCost: updatedMinCost,
+            min_attorney_fee: updatedMinCost,
+            maxCost: updatedMaxCost,
+            max_attorney_fee: updatedMaxCost
+        }
+        window.gantt.updateTask(task.id, newTask);
+    });
+}
+
+export const costUpdaters = {
+    associateFee: getFieldUpdater('associateFee'),
+    unidentifiedFee: getFieldUpdater('unidentifiedFee'),
+    brokerageFee: getFieldUpdater('brokerageFee'),
+    officialFee: onOfficialFeeUpdate,
+    attorneyFee: onAttorneyFeeUpdate,
+}
+
+export const onDurationChange = (initialTask, updatedDuration) => {
+    if (updatedDuration === 0) {
+        initialTask.type = window.gantt.config.types.milestone;
+    } else {
+        initialTask.type = window.gantt.config.types.task;
+    }
+    window.gantt.updateTask(initialTask.id, initialTask);
+}

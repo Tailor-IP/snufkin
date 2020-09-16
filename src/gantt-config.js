@@ -64,9 +64,7 @@ export const setZoomConfig = (gantt) => {
           ]
       }
       gantt.ext.zoom.init(zoomConfig);
-      }
-
-
+  }
 
 const setColumns = (gantt, allowEdit) => {
     const columns = [].concat(defaultColumns);
@@ -78,7 +76,7 @@ const setColumns = (gantt, allowEdit) => {
  }
 
 export const initGanttDateFormat = (gantt) => {
-    gantt.config.date_format     = "%Y-%m-%d";
+    gantt.config.date_format = "%Y-%m-%d";
     gantt.config.date_format = "%Y-%m-%d";
     const cfg = gantt.config;
     const strToDate = gantt.date.str_to_date(cfg.date_format, cfg.server_utc);
@@ -167,8 +165,10 @@ const removeDefaultKeyShortcuts = (gantt) => {
 const setPlugins = (gantt) => {
     gantt.plugins({
             undo: true,
+            keyboard_navigation: true,
     });
-
+    gantt.config.undo_steps = 5;
+    gantt.config.order_branch = true;
 }
 
 export const initConfig = (gantt, editAllowed = false) => {

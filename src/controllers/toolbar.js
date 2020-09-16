@@ -2,6 +2,7 @@ import React from 'react';
 import { editable } from '../store';
 import { useRecoilValue } from 'recoil';
 import Undo from './undo';
+import InlineEdit from './inlineEdit'
 
 const _Toolbar = (props) => {
     const editAllowed = useRecoilValue(editable);
@@ -9,7 +10,10 @@ const _Toolbar = (props) => {
 }
 
 const Toolbar = ({}) => {
-    return <div><Undo /></div>
+    return <div className='toolbar'>
+        <Undo />
+        <InlineEdit />
+    </div>
 }
 
 export default _Toolbar;

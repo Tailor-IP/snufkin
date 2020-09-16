@@ -8,14 +8,13 @@ import {getSnapshot} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
-
 const clearEditHistory = () => {
     window.gantt.clearUndoStack();
     window.gantt.clearRedoStack();
 }
 
 const Snufkin = ({tasks, links, selectedTask}) => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState({tasks: [], links: []});
     const setEditPermissions = useSetRecoilState(editable);
     const setSelectedTask = useSetRecoilState(selectedTaskState);
 
@@ -39,8 +38,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                 }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
-//                setEditPermissions(true)
-//                setData(mock);
+                setEditPermissions(true)
+                setData(mock);
 //        }
     }, [setEditPermissions]);
 
@@ -58,7 +57,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
      <>
         <div className='snufkin'>
             <div className="gantt-container">
-                {data ? <Gantt data={data}/> : null}
+                <Gantt data={data}/>
             </div>
 
         </div>
