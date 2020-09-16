@@ -219,11 +219,13 @@
 	height: 100%;
 	.gantt-container {
 		overflow: auto;
+		height: 100%;
+        #ganttDiv {
+            height: 90%;
+        }
 	}
 
-	#ganttDiv {
-		height: 100%;
-	}
+
 
 
 

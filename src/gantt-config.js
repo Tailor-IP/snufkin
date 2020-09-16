@@ -1,4 +1,5 @@
 import {formatDuration, formatNumber, avg, aggregateTaskCostFields} from './utils';
+import {defaultColumns} from './columns';
 
 const lightboxHeight = 250;
 export const API_URL = window.location.hostname === "www.tailor-ip.com" ? "https://www.tailor-ip.com/_functions" : "https://www.tailor-ip.com/_functions-dev";
@@ -65,46 +66,10 @@ export const setZoomConfig = (gantt) => {
       gantt.ext.zoom.init(zoomConfig);
       }
 
-const initialColumns = [
-  {
-    "name": "text",
-    "tree": true,
-    "width": 156,
-    "resize": true
-  },
-  {
-    "name": "start_date",
-    "align": "center",
-    "resize": true,
-    "width": 90
-  },
-  {
-    "name": "duration",
-    "align": "center",
-    "resize": true,
-    "width": 90,
-    template: function (task) {
-        return formatDuration(task.duration);
-  }},
-    {
-    "name": "totalCost",
-    "align": "center",
-    label: "Cost",
-    "width": 90,
-    template: function (task) {
-        const cost = parseFloat(avg(task.minCost, task.maxCost)) + parseFloat(aggregateTaskCostFields(task))
-        return parseFloat(cost) > 0 ? formatNumber(cost) + '$' : '';
-  }},
-  {
-    "name": "add",
-    "width": 44,
-    "min_width": 44,
-    "max_width": 44
-  }
-];
+
 
 const setColumns = (gantt, allowEdit) => {
-    const columns = [].concat(initialColumns);
+    const columns = [].concat(defaultColumns);
     if (!allowEdit) {
         columns.pop();
         }

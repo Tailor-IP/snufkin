@@ -39,8 +39,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                 }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
-//                setEditPermissions(true)
-//                setData(mock);
+                setEditPermissions(true)
+                setData(mock);
 //        }
     }, [setEditPermissions]);
 
@@ -57,10 +57,10 @@ const Snufkin = ({tasks, links, selectedTask}) => {
      return (
      <>
         <div className='snufkin'>
-            <div id="ganttDiv"></div>
             <div className="gantt-container">
                 {data ? <Gantt data={data}/> : null}
             </div>
+
         </div>
     </>
      );

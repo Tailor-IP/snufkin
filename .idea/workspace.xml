@@ -3,30 +3,16 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/edit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/columns.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/toolbar-button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gantt-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt-config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gantt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,12 +32,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/controllers" />
+    <property name="last_opened_file_path" value="$USER_HOME$/message" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -99,17 +82,17 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="369" y="22" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1368.783@72.27.1368.783" timestamp="1598139069567" />
-    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600097605883">
+    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600245641895">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600097605883" />
+    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600245641895" />
     <state x="420" y="182" key="run.anything.popup" timestamp="1599335929357">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1599335929357" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600106196475">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600246509677">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600106196475" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600246509677" />
   </component>
 </project>
