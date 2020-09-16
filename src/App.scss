@@ -4,6 +4,9 @@
     top: 15% !important;
     border-radius: 2px;
 
+    .gantt_cal_ltitle {
+        display: none;
+    }
 	.price-details {
 		display: flex;
 		justify-content: space-between;
@@ -185,16 +188,16 @@
 
 		.gantt_cal_larea {
     		height: fit-content !important;
+    		border: none;
     	}
+
     	.gantt_cal_template {
     		height: fit-content !important;
     	}
     	.gantt_cal_lsection {
     		display: none;
     	}
-    	.gantt_cal_ltitle .gantt_title {
-    		display: none;
-    	}
+
 	.milestone-summary {
 		padding-bottom: 32px;
 		display: flex;

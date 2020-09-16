@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/lightboxes/subComponents/date.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.9c49607dfa90ee4236678ac443921ba1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.9fd8ac3e.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.9fd8ac3e.chunk.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.981808ae.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gantt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gantt-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/subComponents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/subComponents/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lightboxes/subComponents/milestone-summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/subComponents/milestone-summary.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,17 +80,17 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="369" y="22" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1368.783@72.27.1368.783" timestamp="1598139069567" />
-    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600097605883">
+    <state x="72" y="64" width="1368" height="522" key="find.popup" timestamp="1600173346878">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600097605883" />
+    <state x="72" y="64" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600173346878" />
     <state x="420" y="182" key="run.anything.popup" timestamp="1599335929357">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1599335929357" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600106196475">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600241443500">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600106196475" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600241443500" />
   </component>
 </project>

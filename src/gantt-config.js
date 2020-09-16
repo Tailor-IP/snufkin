@@ -200,9 +200,10 @@ const removeDefaultKeyShortcuts = (gantt) => {
 }
 
 const setPlugins = (gantt) => {
-//    gantt.plugins({
-//        auto_scheduling: true
-//    });
+    gantt.plugins({
+        fullscreen: true,
+        undo: true,
+    });
 //    gantt.config.auto_scheduling = true;
 //    gantt.config.auto_scheduling_initial = false;
 //    gantt.config.auto_scheduling_move_projects = true;

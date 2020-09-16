@@ -32,8 +32,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                 }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
-//                setEditPermissions(true)
-//                setData(mock);
+                setEditPermissions(true)
+                setData(mock);
 //        }
     }, [setEditPermissions]);
 
