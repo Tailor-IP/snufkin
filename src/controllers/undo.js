@@ -31,7 +31,7 @@ const UndoRedo = ({className = ''}) => {
         setUndo(window.gantt.getUndoStack().length);
   }
 
-    return <div className={className} >
+    return <div className='undo-redo-button' >
                 <Button type="primary" disabled={!undoStackLength} className='undo-redo-button' onClick={undo} icon={<FontAwesomeIcon icon={faUndo} className='undo'/>} />
                 <Button type="primary" disabled={!redoStackLength} className='undo-redo-button' onClick={redo} icon={<FontAwesomeIcon icon={faRedo} className='redo'/>} />
            </div>

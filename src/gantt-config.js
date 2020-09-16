@@ -166,6 +166,7 @@ const setPlugins = (gantt) => {
     gantt.plugins({
             undo: true,
             keyboard_navigation: true,
+            fullscreen: true,
     });
     gantt.config.undo_steps = 5;
     gantt.config.order_branch = true;
