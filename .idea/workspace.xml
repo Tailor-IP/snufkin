@@ -6,18 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.0b85c7ae476117aa6d4c88f500e24651.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/css/main.16611471.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.f701de18.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.f701de18.chunk.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.05eba34e.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/fullScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/fullScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gantt-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gantt-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lightboxes/buttons/deleteButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lightboxes/buttons/deleteButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.a0ae0ef77e4f101fce9ba8487f3a7b19.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/css/main.757c8bb9.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/2.2d4b5af1.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/2.2d4b5af1.chunk.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.db854179.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/runtime-main.5ac0fe45.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/inlineEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/inlineEdit.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,17 +89,17 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="540" y="334" width="432" height="182" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1368.783@72.27.1368.783" timestamp="1600256535300" />
-    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600335993173">
+    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600337707377">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600335993173" />
+    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600337707377" />
     <state x="420" y="182" key="run.anything.popup" timestamp="1599335929357">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1599335929357" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600336198932">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600340164334">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600336198932" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600340164334" />
   </component>
 </project>

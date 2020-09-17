@@ -4,8 +4,10 @@ import {defaultColumns, inlineEditColumns} from '../columns';
 import {costUpdaters, onDurationChange, onTaskMove} from '../utils';
 
 const handleInlineEditing = (diff) => {
-    console.log(diff);
     const task = window.gantt.getTask(diff.id);
+    if (task.type === 'project') {
+        return
+    }
 
     if (costUpdaters[diff.columnName]) {
         const updater = costUpdaters[diff.columnName];
@@ -24,10 +26,21 @@ const handleInlineEditing = (diff) => {
         return
     }
 }
-const subscribeToInlineEditing = () => window.gantt.ext.inlineEditors.attachEvent("onBeforeSave", (diff) => {
+
+const handleEditStart = (a,b,c,d) => {
+    debugger;
+}
+
+const subscribeToInlineEditing = () => {
+                    window.gantt.ext.inlineEditors.attachEvent("onBeforeSave", (diff) => {
                                                        handleInlineEditing(diff);
                                                        return true;
                                                    });
+                    window.gantt.ext.inlineEditors.attachEvent('onBeforeEditStart', (diff) => {
+                         const task = window.gantt.getTask(diff.id);
+                         return task.type !== window.gantt.config.types.project;
+                    })
+                }
 
 const InlineEdit = () => {
     const onChange = (checked) => {
