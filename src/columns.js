@@ -65,6 +65,26 @@ export const inlineEditColumns = [
            },
          },
           {
+              "name": "attorneyFee",
+              label: "Attorney Fee",
+              "align": "center",
+              "resize": true,
+              "width": 90,
+              template: function (task) {
+                     const cost = parseFloat(avg(task.minCost, task.maxCost))
+                     return formatNumber(cost);
+               },
+              editor: {type: "number", map_to: "attorneyFee", min:0},
+          },
+        {
+             "name": "officialFee",
+             label: "Official Fee",
+             "align": "center",
+             "resize": true,
+             "width": 90,
+             editor: {type: "number", map_to: "officialFee", min:0},
+         },
+          {
             "name": "associateFee",
             label: "Associate Fee",
             "align": "center",
@@ -101,6 +121,6 @@ export const inlineEditColumns = [
            "name": "add",
            "width": 44,
            "min_width": 44,
-           "max_width": 44
+           "max_width": 44,
          }
        ];
