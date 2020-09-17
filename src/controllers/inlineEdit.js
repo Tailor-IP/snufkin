@@ -38,7 +38,7 @@ const subscribeToInlineEditing = () => {
                                                    });
                     window.gantt.ext.inlineEditors.attachEvent('onBeforeEditStart', (diff) => {
                          const task = window.gantt.getTask(diff.id);
-                         return task.type !== window.gantt.config.types.project;
+                         return task.type !== window.gantt.config.types.project || diff.columnName === 'text';
                     })
                 }
 
