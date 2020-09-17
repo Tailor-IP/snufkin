@@ -239,7 +239,7 @@
             align-items: center;
             height: 50px;
 //             border: 1px solid #d9d9d9;
-            width: 80px;
+            width: 77px;
             .ant-btn {
                 width: 30px;
                 height: 30px;
@@ -257,10 +257,18 @@
             width: 80px;
         }
 
-        .fullscreen-button {
-            border-left: none;
+        .fullscreen-button-wrapper {
+            height: 100%;
+            border-right: 1px solid #d9d9d9;
             .fullscreen-button-title {
                 padding-bottom: 4px;
+            }
+            .fullscreen-button {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: none;
             }
             display: flex;
             flex-direction: column;
@@ -319,4 +327,29 @@
 	.gantt_row:hover {
 		background: rgba(24, 144, 255, 0.3) !important;
 	}
+}
+
+.gantt-alert {
+    border-radius: 0;
+    .gantt_popup_button {
+        border-radius: 0;
+    }
+
+    .gantt_ok_button {
+        background: #ff4d4f;
+        color: white;
+        text-shadow: none;
+    }
+
+    .gantt_ok_button:focus {
+        outline: none;
+    }
+}
+
+.gantt-info {
+    background: none;
+    border: none;
+    >div {
+        border-radius: 0;
+    }
 }

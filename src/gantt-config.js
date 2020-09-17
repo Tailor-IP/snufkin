@@ -137,7 +137,8 @@ export function initLightbox(gantt, editAllowed = false) {
         return task;
     });
 
-    gantt.attachEvent("onTaskCreated", function(task) {
+    gantt.attachEvent("onTaskCreated", function(newTask) {
+        const task = {...newTask}
         task['$new'] = true;
         gantt.addTask(task)
         return false;

@@ -5,12 +5,12 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 
 const FullScreen = () => {
     const onClick = () => window.gantt.ext.fullscreen.expand();
-    return <Button onClick={onClick}>
-                <div className='fullscreen-button'>
+    return <div className='fullscreen-button-wrapper'>
+                <Button onClick={onClick} className='fullscreen-button'>
                    <span className='fullscreen-button-title'>Full Screen</span>
                    <FontAwesomeIcon icon={faExpandAlt} className='expand'/>
-               </div>
-            </Button>
+                </Button>
+           </div>
 }
 
 export default FullScreen;
