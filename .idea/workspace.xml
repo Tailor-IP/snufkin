@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controllers/rootDate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/columns.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/columns.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/precache-manifest.cf93857ce2c1443510dc6e221636484e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.bea77c8f.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/toolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mock-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mock-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +83,10 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="545" y="152" width="424" height="496" key="FileChooserDialogImpl/72.27.1368.783@72.27.1368.783" timestamp="1599984008299" />
+    <state width="533" height="446" key="SwitcherDM" timestamp="1600353847679">
+      <screen x="72" y="27" width="1368" height="783" />
+    </state>
+    <state width="533" height="446" key="SwitcherDM/72.27.1368.783@72.27.1368.783" timestamp="1600353847679" />
     <state x="369" y="22" width="770" height="785" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598139069567">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
@@ -79,17 +95,17 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="540" y="334" width="432" height="182" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1368.783@72.27.1368.783" timestamp="1600256535300" />
-    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600337707377">
+    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600352892992">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600337707377" />
+    <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600352892992" />
     <state x="420" y="182" key="run.anything.popup" timestamp="1599335929357">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1599335929357" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600341523706">
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600673077486">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600341523706" />
+    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600673077486" />
   </component>
 </project>

@@ -5,7 +5,6 @@ import Undo from './undo';
 import InlineEdit from './inlineEdit';
 import FullScreen from './fullScreen';
 
-
 const _Toolbar = (props) => {
     const editAllowed = useRecoilValue(editable);
     return editAllowed ? <Toolbar className='toolbar' {...props}/> : null

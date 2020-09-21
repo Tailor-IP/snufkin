@@ -141,10 +141,15 @@ export const onTaskMove = (initial, updatedStartDate) => {
 
 export const getFieldUpdater = (field) => (initialTask, updatedCost) => {
     const initialCost = initialTask[field] || 0;
-    const diff = updatedCost - initialCost;
+    const diff = parseFloat(updatedCost) - parseFloat(initialCost);
         updateBranch(initialTask, (task) => {
             const initialTaskCost = task[field] || 0;
-            const updatedCost = parseFloat(initialTaskCost) + parseFloat(diff);
+            let updatedCost = parseFloat(initialTaskCost) + parseFloat(diff);
+            if (isNaN(updatedCost)) {
+                window.gantt.message(`Failed to parse, resetting cost`);
+                updatedCost = 0;
+            }
+
             const newTask = {...task,
                 [field]: updatedCost,
             }
@@ -153,9 +158,15 @@ export const getFieldUpdater = (field) => (initialTask, updatedCost) => {
     }
 
 export const onOfficialFeeUpdate = (initialTask, updatedCost) => {
-    const diff = updatedCost - initialTask.officialFee;
+    const diff = (updatedCost || 0) - (initialTask.officialFee || 0);
     updateBranch(initialTask, (task) => {
-        const updatedCost = parseFloat(task.officialFee) + parseFloat(diff);
+        let updatedCost = parseFloat(task.officialFee) + parseFloat(diff);
+
+        if (isNaN(updatedCost)) {
+            window.gantt.message(`Failed to parse, resetting cost`);
+            updatedCost = 0;
+        }
+
         const newTask = {...task,
             officialFee: updatedCost,
             official_fee: updatedCost,
@@ -167,8 +178,14 @@ export const onOfficialFeeUpdate = (initialTask, updatedCost) => {
 export const onAttorneyFeeUpdate = (initialTask, updatedCost) => {
     const diff = updatedCost - avg(initialTask.minCost, initialTask.maxCost);
     updateBranch(initialTask, (task) => {
-        const updatedMinCost = parseFloat(task.minCost) + parseFloat(diff);
-        const updatedMaxCost = parseFloat(task.maxCost) + parseFloat(diff);
+        let updatedMinCost = parseFloat(task.minCost) + parseFloat(diff);
+        let updatedMaxCost = parseFloat(task.maxCost) + parseFloat(diff);
+
+        if (isNaN(updatedMinCost) || isNaN(updatedMaxCost)) {
+            window.gantt.message(`Failed to parse, resetting cost`);
+            updatedMinCost = 0;
+            updatedMaxCost = 0;
+        }
 
         const newTask = {...task,
             minCost: updatedMinCost,

@@ -3,7 +3,7 @@ import Gantt from './gantt';
 import {sendMsg} from './connection-utils';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
-import {data5 as mock} from './mock-data';
+import {data as mock} from './mock-data';
 import {getSnapshot} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
@@ -38,8 +38,8 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                 }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
-//                setEditPermissions(true)
-//                setData(mock);
+                setEditPermissions(true)
+                setData(mock);
 //        }
     }, [setEditPermissions]);
 
