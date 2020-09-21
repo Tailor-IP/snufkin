@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.088ebab3d257d992e677596a7f79e4b3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.bc97181a.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.bc97181a.chunk.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.eb8afa63.chunk.js" beforeDir="false" />
-    </list>
+    <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,9 +88,10 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1599335929357" />
-    <state x="419" y="131" width="672" height="678" key="search.everywhere.popup" timestamp="1600677636780">
-      <screen x="72" y="27" width="1368" height="783" />
+    <state x="541" y="167" width="908" height="912" key="search.everywhere.popup" timestamp="1600692079488">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="419" y="131" width="672" height="678" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1600677636780" />
+    <state x="541" y="167" width="908" height="912" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1600692079488" />
   </component>
 </project>
