@@ -13,6 +13,7 @@ const clearEditHistory = () => {
     window.gantt.clearRedoStack();
 }
 
+
 const Snufkin = ({tasks, links, selectedTask}) => {
     const [data, setData] = useState({tasks: [], links: []});
     const setEditPermissions = useSetRecoilState(editable);
