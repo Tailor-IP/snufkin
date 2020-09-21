@@ -4,7 +4,7 @@ import {viewComponents} from './lightboxes';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { selectedTaskState, editable, undoStack, redoStack } from './store';
 import {Zoom, Toolbar} from './controllers';
-import {showTask, updateBranch, onTaskMove} from './utils';
+import {showTask, updateBranch, onTaskMove, dateToString} from './utils';
 
 let gantt;
 
@@ -48,12 +48,21 @@ export const Gantt = ({data, onSave}) => {
     }, [])
 
     useEffect(() => {
+        if (!data || !data.tasks || !data.tasks.length) return;
+
         gantt = window.gantt;
         gantt.clearAll();
         initConfig(gantt, isEditable);
         gantt.ext.zoom.setLevel(0);
         gantt.config.date_format = "%Y-%m-%d";
         window.gantt.parse(data);
+
+        gantt.addMarker({
+            start_date: new Date(),
+            css: "today",
+            title: dateToString(new Date()),
+            text: "Today"
+        });
 
 //        if (data && data.tasks && data.tasks.length) {
 //            Object.values(data.tasks).forEach(t => gantt.addTask(t, t.parent))

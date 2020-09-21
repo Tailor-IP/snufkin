@@ -213,3 +213,8 @@ export const onDurationChange = (initialTask, updatedDuration) => {
     }
     window.gantt.updateTask(initialTask.id, initialTask);
 }
+
+export const dateToString = (date) => {
+    const [year, month, day] = date.toISOString().slice(0, 10).split('-');
+    return `${day}/${month}/${year}`;
+}
