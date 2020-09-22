@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +84,11 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="540" y="334" width="432" height="182" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1368.783@72.27.1368.783" timestamp="1600256535300" />
-    <state x="72" y="288" width="1368" height="522" key="find.popup" timestamp="1600704122544">
-      <screen x="72" y="27" width="1368" height="783" />
+    <state x="72" y="378" width="1848" height="702" key="find.popup" timestamp="1600763225971">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="72" y="288" width="1368" height="522" key="find.popup/72.27.1368.783@72.27.1368.783" timestamp="1600704122544" />
+    <state x="72" y="378" width="1848" height="702" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1600763225971" />
     <state x="420" y="182" key="run.anything.popup" timestamp="1599335929357">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
