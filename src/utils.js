@@ -1,4 +1,5 @@
 import groupBy from 'lodash/groupBy';
+import {sendMsg} from './connection-utils';
 
 export function formatNumber(num) {
     const factor = num > 1000 ? 100 : 10;
@@ -62,9 +63,14 @@ export const updateBranch = (task, callback) => {
 }
 
 export const getSnapshot = () => {
-            const tasks = Object.values(window.gantt.$data.tasksStore.pull);
+            const tasks = Object.values(window.gantt.$data.tasksStore.pull).map(task => ({...task, start_date: task.start_date.toString()}));
+            console.log('tasks', tasks)
             const links = window.gantt.getLinks();
             return {tasks, links}
+}
+
+export const sendSaveGanttMessage = () => {
+    sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
 }
 
 const fieldsToAggregate = [

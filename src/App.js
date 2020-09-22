@@ -3,8 +3,8 @@ import Gantt from './gantt';
 import {sendMsg} from './connection-utils';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
-import {data as mock} from './mock-data';
-import {getSnapshot} from './utils';
+//import {data as mock} from './mock-data';
+import {sendSaveGanttMessage} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
@@ -34,7 +34,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                    sendMsg('done')
                 }
                 if (data.type === 'getSnapshot') {
-                    sendMsg(JSON.stringify({type: 'snapshot', snapshot: getSnapshot()}));
+                    sendSaveGanttMessage();
                 }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
@@ -55,7 +55,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
 
      return (
      <>
-        <div className='snufkin'>
+        <div className='snufkin' id='snufkin'>
             <div className="gantt-container">
                 <Gantt data={data}/>
             </div>

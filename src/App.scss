@@ -226,6 +226,7 @@
 	}
 
     .toolbar {
+        background: white;
         display: flex;
         height: 50px;
         align-items: center;
@@ -252,18 +253,21 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 60px;
+            height: 100%;
             border: 1px solid #d9d9d9;
             width: 80px;
+            border-bottom: 0;
+            border-top: 0;
         }
 
-        .fullscreen-button-wrapper {
+        .tooltip-button-wrapper {
             height: 100%;
+            width: 90px;
             border-right: 1px solid #d9d9d9;
-            .fullscreen-button-title {
+            .tooltip-button-title {
                 padding-bottom: 4px;
             }
-            .fullscreen-button {
+            .tooltip-button {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;

@@ -4,6 +4,8 @@ import { useRecoilValue } from 'recoil';
 import Undo from './undo';
 import InlineEdit from './inlineEdit';
 import FullScreen from './fullScreen';
+import Save from './save';
+import RootDate from './rootDate';
 
 const _Toolbar = (props) => {
     const editAllowed = useRecoilValue(editable);
@@ -15,6 +17,7 @@ const Toolbar = () => {
         <Undo />
         <InlineEdit />
         <FullScreen />
+        <Save />
     </div>
 }
 

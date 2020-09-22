@@ -3,11 +3,16 @@ import { DatePicker, Button } from 'antd';
 import { useRecoilState } from 'recoil';
 import { undoStack, redoStack } from '../store';
 
-const RootDate = ({}) => {
-    const onChange = () => {};
+const GetRootDateButton = () => {
+    const onClick = () => {}
+}
 
-    return <div>
-                <DatePicker onChange={onChange} />
+const RootDate = ({}) => {
+
+    const get = () => {};
+
+    return <div className='tooltip-button-wrapper'>
+                <DatePicker format='DD/MM/YYYY' onChange={() => {}} renderExtraFooter={() => <div>footer</div>} />
                 <Button />
             </div>
 }
