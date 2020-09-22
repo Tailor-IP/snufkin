@@ -63,7 +63,9 @@ export const updateBranch = (task, callback) => {
 }
 
 export const getSnapshot = () => {
-            const tasks = Object.values(window.gantt.$data.tasksStore.pull);
+            const tasksMap = window.gantt.$data.tasksStore.pull;
+            const tasksOrder = window.gantt.$data.tasksStore.fullOrder.flat();
+            const tasks = tasksOrder.map(id => tasksMap[id]);
             const links = window.gantt.getLinks();
             return {tasks, links}
 }

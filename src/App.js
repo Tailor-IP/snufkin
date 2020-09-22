@@ -41,6 +41,7 @@ const Snufkin = ({tasks, links, selectedTask}) => {
 //                setEditPermissions(true)
 //                setData(mock);
 //        }
+    console.log('ver 0.0.1');
     }, [setEditPermissions]);
 
     useEffect(() => {
