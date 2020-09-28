@@ -3,8 +3,8 @@ import Gantt from './gantt';
 import {sendMsg} from './connection-utils';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
-//import {data as mock} from './mock-data';
-import {sendSaveGanttMessage} from './utils';
+import {data as mock, receipts as receiptsMock} from './mock-data';
+import {sendSaveGanttMessage, updateTaskCostsFromReceipts} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
@@ -13,8 +13,10 @@ const clearEditHistory = () => {
     window.gantt.clearRedoStack();
 }
 
-const Snufkin = ({tasks, links, selectedTask}) => {
+const Snufkin = ({tasks, links, selectedTask, receipts}) => {
     const [data, setData] = useState({tasks: [], links: []});
+    const [receiptAssignments, setAssignments] = useState({});
+
     const setEditPermissions = useSetRecoilState(editable);
     const setSelectedTask = useSetRecoilState(selectedTaskState);
 
@@ -33,6 +35,12 @@ const Snufkin = ({tasks, links, selectedTask}) => {
                    clearEditHistory();
                    sendMsg('done')
                 }
+
+                if (data.type === 'receipts') {
+                    const assignments = data.payload.assignments;
+                    setAssignments(assignments)
+                }
+
                 if (data.type === 'getSnapshot') {
                     sendSaveGanttMessage();
                 }
@@ -40,8 +48,9 @@ const Snufkin = ({tasks, links, selectedTask}) => {
 //        if (window.location.pathname.split('/').includes('test')) {
 //                setEditPermissions(true)
 //                setData(mock);
+//                setAssignments(receipts.assignments);
 //        }
-    console.log('ver 0.0.1');
+    console.log('ver 0.0.2');
     }, [setEditPermissions]);
 
     useEffect(() => {
@@ -53,6 +62,10 @@ const Snufkin = ({tasks, links, selectedTask}) => {
     useEffect(() => {
         setSelectedTask(selectedTask);
     }, [selectedTask])
+
+    useEffect(() => {
+        updateTaskCostsFromReceipts(receipts);
+    }, [receiptAssignments, tasks, data, receipts])
 
      return (
      <>

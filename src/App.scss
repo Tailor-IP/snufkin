@@ -1,3 +1,7 @@
+$error: #f56464;
+$success: #4ebc8e;
+$neutral: #808080b0;
+
 .gantt_cal_light {
     min-height: 350px;
     height: fit-content !important;
@@ -110,6 +114,26 @@
 		display: flex;
 		justify-content: space-between;
 	}
+
+    .editable-cost-titles {
+        padding-right: 28px;
+    }
+	.cost-titles {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        font-size: 11px;
+        font-weight: 600;
+        padding-bottom: 6px;
+	    .cost-category {
+	        width: 65px
+	    }
+
+        .cost-category:last-of-type {
+            width: 45px;
+        }
+	}
+
 	.edit-button {
 		margin-left: 8px;
 		color: #7d7b7bf2;
@@ -146,6 +170,31 @@
 		min-width: 90px;
 		display: inline-flex;
 		justify-content: flex-end;
+
+		.cost-compare {
+		    padding-left: 8px;
+		    width: 65px;
+		}
+
+		.percentage {
+		    font-size: 10px;
+		    width: 45px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+
+            &.neutral {
+                color: $neutral;
+            }
+		}
+
+		.positive {
+		    color: $success;
+		}
+
+		.negative {
+		    color: $error;
+		}
 	}
 	.ant-input-number {
 		border: none;
@@ -173,6 +222,9 @@
 		border-top: 1px dashed #d3d3d3;
 		margin-top: 8px;
 		padding-top: 11px;
+		&.edit {
+		    padding-right: 28px;
+		}
 	}
 
 		.view-buttons-section {

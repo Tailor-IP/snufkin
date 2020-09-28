@@ -6,6 +6,7 @@ import { useRecoilState } from 'recoil';
 import { formatFloat } from '../../utils';
 
 const noop = () => {};
+const DIFF_PERCENT_THRESHOLD = 15;
 
 const CostEdit = forwardRef(({title, value = 0, onChange, className = ''}, ref) => {
     return <div className={`cost-edit ${className}`}>
@@ -21,17 +22,41 @@ const CostEdit = forwardRef(({title, value = 0, onChange, className = ''}, ref) 
             </div>
 })
 
-const DisplayCost = ({value = 0, title, showIfEmpty = false, className = '' }) => {
-//    return parseFloat(value) || showIfEmpty ? (
+const DisplayCost = ({value = 0, actualCost, title, showIfEmpty = false, className = '' }) => {
+
+    if (typeof actualCost === 'number') {
+        const diff = parseFloat(actualCost) - parseFloat(value);
+        const percentage = parseFloat(value) === 0 || parseFloat(actualCost) === 0 || !parseFloat(diff) ? 0 : ((parseFloat(diff) / parseFloat(value)) * 100).toFixed(2);
+        let deviation = Math.abs(percentage) > DIFF_PERCENT_THRESHOLD ? (diff < 0 ? 'positive' : 'negative') : 'neutral';
+
+        if (parseFloat(value) === 0 && parseFloat(actualCost) !== 0) {
+            deviation = 'negative';
+        }
+
+        if (parseFloat(actualCost) === 0 && parseFloat(value) !== 0) {
+                    deviation = 'positive';
+                }
+
+        const sign = diff >= 0 ? '+' : '-';
+
+        return (
+             <div className={`cost-display ${className}`}>
+                <span className='cost-edit-title'>{title}</span>
+                <span className='display-cost'>
+                    <span className='cost-compare'>{`$ ${formatFloat(value || 0)}`}</span>
+                    <span className={'cost-compare ' + deviation}>{`$ ${formatFloat(actualCost || 0)}`}</span>
+                    <span className={'percentage ' + deviation}>{`${parseFloat(percentage) ? sign + Math.abs(percentage) + '%' : ''}`}</span>
+                </span>
+             </div>)
+    }
      return (
      <div className={`cost-display ${className}`}>
         <span className='cost-edit-title'>{title}</span>
         <span className='display-cost'>{`$ ${formatFloat(value || 0)}`}</span>
      </div>)
-//     : null
 }
 
-const EditableCost = ({value, title, onChange = noop, className = ''}) => {
+const EditableCost = ({value, title, onChange = noop, actualCost, className = ''}) => {
     const [cost, setCost] = useState(value);
     const [selectedTask, selectTask] = useRecoilState(selectedTaskState);
     const [editing, EditSwitch] = useEdit(() => {
@@ -59,13 +84,13 @@ const EditableCost = ({value, title, onChange = noop, className = ''}) => {
         <EditSwitch className='cost-edit-switch'/>
     </div>) :
     (<div className='edit-cost'>
-        <DisplayCost value={value} title={title} showIfEmpty/>
+        <DisplayCost value={value} title={title} showIfEmpty actualCost={actualCost}/>
         <EditSwitch className='cost-edit-switch' />
         </div>)
 }
 
-const Cost = ({value, title, onChange = noop, className = '', editable = false}) => {
-    return editable ? <EditableCost value={value} title={title} onChange={onChange} className={className}/> : <DisplayCost value={value} title={title} className={className}/>
+const Cost = ({value, title, onChange = noop, className = '', editable = false, actualCost}) => {
+    return editable ? <EditableCost value={value} actualCost={actualCost} title={title} onChange={onChange} className={className}/> : <DisplayCost value={value} title={title} className={className} actualCost={actualCost}/>
 }
 
 export default Cost

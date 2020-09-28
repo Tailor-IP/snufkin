@@ -225,3 +225,32 @@ export const dateToString = (date) => {
     const [year, month, day] = date.toISOString().slice(0, 10).split('-');
     return `${day}/${month}/${year}`;
 }
+
+const extractCosts = (assignment) => {
+    const feeKeys = Object.keys(assignment).filter(key => key.endsWith('Fee'));
+    return feeKeys.map(key => ({key, value: assignment[key]}));
+}
+
+export const updateTaskCostsFromReceipts = (receipts) => {
+    if (!receipts || !receipts.assignments) return;
+    const assignments = receipts.assignments
+    const tasks = Object.values(window.gantt.$data.tasksStore.pull);
+    const actualCostsMap = groupBy(assignments, 'taskId');
+    tasks.forEach(task => {
+        if (task.actualCost) {
+            const {actualCost, ...newTask} = task;
+            window.gantt.updateTask(task.id, newTask)
+        }
+
+        if (actualCostsMap[task.id]) {
+            const extractedCosts = actualCostsMap[task.id].map(extractCosts);
+            const costsSum = extractedCosts.flat().reduce((sum, cost) => {
+                sum[cost.key] = (sum[cost.key] || 0) + cost.value;
+                return sum
+            }, {})
+
+            const updatedTask = {...task, actualCost: costsSum};
+            window.gantt.updateTask(task.id, updatedTask)
+        }
+    })
+}
