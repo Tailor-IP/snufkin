@@ -21,29 +21,31 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
     const setSelectedTask = useSetRecoilState(selectedTaskState);
 
     useEffect(() => {
-        window.onmessage = (event) => {
-                let data = event.data;
-                try {
-                    data = JSON.parse(event.data);
-                } catch(e) {
-                    console.log("can't parse data: " + event.data);
-                }
-                if (data.type === 'data') {
-                   console.log('got data');
-                   setData(data.data);
-                   setEditPermissions(data.editable || false)
-                   clearEditHistory();
-                   sendMsg('done')
-                }
+        if (!tasks) { // not controlled version
+            window.onmessage = (event) => {
+                    let data = event.data;
+                    try {
+                        data = JSON.parse(event.data);
+                    } catch(e) {
+                        console.log("can't parse data: " + event.data);
+                    }
+                    if (data.type === 'data') {
+                       console.log('got data');
+                       setData(data.data);
+                       setEditPermissions(data.editable || false)
+                       clearEditHistory();
+                       sendMsg('done')
+                    }
 
-                if (data.type === 'receipts') {
-                    const assignments = data.payload.assignments;
-                    setAssignments(assignments)
-                }
+                    if (data.type === 'receipts') {
+                        const assignments = data.payload.assignments;
+                        setAssignments(assignments)
+                    }
 
-                if (data.type === 'getSnapshot') {
-                    sendSaveGanttMessage();
-                }
+                    if (data.type === 'getSnapshot') {
+                        sendSaveGanttMessage();
+                    }
+            }
         }
 //        if (window.location.pathname.split('/').includes('test')) {
 //                setEditPermissions(true)
