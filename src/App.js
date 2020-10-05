@@ -67,7 +67,11 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
 
     useEffect(() => {
         updateTaskCostsFromReceipts(receiptAssignments);
-    }, [receiptAssignments, tasks, data, receipts])
+    }, [receiptAssignments, tasks, data])
+
+    useEffect(() => {
+        if (receipts && receipts.assignments) setAssignments(receipts.assignments)
+    }, [receipts])
 
      return (
      <>
