@@ -68,7 +68,6 @@ const CostComponent = ({task, className = ''}) => {
     const isEditable = useRecoilValue(editable) && !task.isFolder;
     const actualCost = task.actualCost ? {...costFields, ...task.actualCost} : {};
     const actualSum = task.actualCost ? Object.values(actualCost).reduce((sum, cost) => sum + cost, 0) : null;
-
     return <div className={`price-details ${className}`}>
                 {task.actualCost ? <CostsTitle editable={isEditable} /> : null}
                <Cost title="Attorney Fee" value={attorneyFee} actualCost={actualCost.attorneyFee} editable={isEditable} onChange={costUpdaters.attorneyFee.bind(null, task)}/>

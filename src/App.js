@@ -3,7 +3,7 @@ import Gantt from './gantt';
 import {sendMsg} from './connection-utils';
 import './App.scss';
 import { RecoilRoot } from 'recoil';
-import {data as mock, receipts as receiptsMock} from './mock-data';
+//import {data as mock, receipts as receiptsMock} from './mock-data';
 import {sendSaveGanttMessage, updateTaskCostsFromReceipts} from './utils';
 import {editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
@@ -50,7 +50,7 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
 //        if (window.location.pathname.split('/').includes('test')) {
 //                setEditPermissions(true)
 //                setData(mock);
-//                setAssignments(receipts.assignments);
+//                setAssignments(receiptsMock.assignments);
 //        }
     console.log('ver 0.0.2');
     }, [setEditPermissions]);
@@ -66,7 +66,7 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
     }, [selectedTask])
 
     useEffect(() => {
-        updateTaskCostsFromReceipts(receipts);
+        updateTaskCostsFromReceipts(receiptAssignments);
     }, [receiptAssignments, tasks, data, receipts])
 
      return (
@@ -75,7 +75,6 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
             <div className="gantt-container">
                 <Gantt data={data}/>
             </div>
-
         </div>
     </>
      );

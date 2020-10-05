@@ -6,9 +6,11 @@ export function formatNumber(num) {
     return Math.round((parseInt(num, 10)/factor) * factor).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export function formatFloat(num) {
-    const splitNum = parseFloat(num).toFixed(2).toString().split('.');
-    return [splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, ","), splitNum[1]].join('.');
+export function formatFloat(num, fixed = 0) {
+    const fixedNum = fixed > 0 ? parseFloat(num).toFixed(fixed) : Math.round(num);
+    const splitNum = fixedNum.toString().split('.');
+    const formattedInteger = splitNum[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    return fixed > 0 ? [formattedInteger, splitNum[1]].join('.') : formattedInteger;
 }
 
 export function formatDuration(duration) {
@@ -231,9 +233,9 @@ const extractCosts = (assignment) => {
     return feeKeys.map(key => ({key, value: assignment[key]}));
 }
 
-export const updateTaskCostsFromReceipts = (receipts) => {
-    if (!receipts || !receipts.assignments) return;
-    const assignments = receipts.assignments
+export const updateTaskCostsFromReceipts = (assignments) => {
+    if (!assignments) return;
+//    const assignments = receipts.assignments
     const tasks = Object.values(window.gantt.$data.tasksStore.pull);
     const actualCostsMap = groupBy(assignments, 'taskId');
     tasks.forEach(task => {
