@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="36028d57-15bd-427a-a739-eb96b784abce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,9 +111,9 @@
       <screen x="72" y="27" width="1368" height="783" />
     </state>
     <state x="420" y="182" key="run.anything.popup/72.27.1368.783@72.27.1368.783" timestamp="1599335929357" />
-    <state x="419" y="131" width="672" height="160" key="search.everywhere.popup" timestamp="1601885812634">
+    <state x="419" y="131" width="672" height="160" key="search.everywhere.popup" timestamp="1602058516834">
       <screen x="72" y="27" width="1368" height="783" />
     </state>
-    <state x="419" y="131" width="672" height="160" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1601885812634" />
+    <state x="419" y="131" width="672" height="160" key="search.everywhere.popup/72.27.1368.783@72.27.1368.783" timestamp="1602058516834" />
   </component>
 </project>
