@@ -9,6 +9,15 @@ const handleInlineEditing = (diff) => {
         return
     }
 
+    if (diff.columnName === 'text') {
+        const newTask = {
+            ...task,
+            title: diff.newValue, // backward compatibility
+            text: diff.newValue   // value gantt uses
+        }
+        window.gantt.updateTask(task.id, newTask);
+    }
+
     if (costUpdaters[diff.columnName]) {
         const updater = costUpdaters[diff.columnName];
         const newValue = parseFloat(diff.newValue || 0);
@@ -25,10 +34,6 @@ const handleInlineEditing = (diff) => {
         onTaskMove(task, diff.newValue);
         return
     }
-}
-
-const handleEditStart = (a,b,c,d) => {
-    debugger;
 }
 
 const subscribeToInlineEditing = () => {

@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import { selectedTaskState, editable } from '../../store'
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 
-const DisplayTitle = ({task}) => <div className='summary-title'>{task.title}</div>
+const DisplayTitle = ({task}) => <div className='summary-title'>{task.text}</div>
 
 const EditableTitle = ({task, className = ''}) => {
     const selectTask = useSetRecoilState(selectedTaskState);
