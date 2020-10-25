@@ -1,6 +1,8 @@
 import groupBy from 'lodash/groupBy';
 import {sendMsg} from './connection-utils';
 
+const dayInEpoch = 1000 * 60 * 60 * 24;
+
 export function formatNumber(num) {
     const factor = num > 1000 ? 100 : 10;
     return Math.round((parseInt(num, 10)/factor) * factor).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -147,6 +149,54 @@ export const onTaskMove = (initial, updatedStartDate) => {
         window.gantt.updateTask(task.id, task);
     });
 }
+
+const setEndDate = (id, endDate, squash = true) => {
+    const initialTask = window.gantt.$data.tasksStore.pull[id];
+    onTaskMove(initialTask, endDate);
+
+    if (initialTask.type === 'project') {
+        console.warn("that's a folder", 'https://i.imgur.com/RUdPyQP.jpg');
+    }
+
+    const diff = endDate.valueOf() - initialTask.end_date.valueOf();
+    const newStartDate = initialTask.start_date.valueOf() + diff;
+
+    if (initialTask.type === 'milestone') {
+        const newTask = {...initialTask};
+        newTask.start_date = endDate;
+        window.gantt.updateTask(id, newTask);
+        return window.gantt.$data.tasksStore.pull[id];
+    }
+
+    if (squash) {
+        const newTask = {...initialTask};
+        let newDuration;
+
+        if (endDate.valueOf() <= initialTask.start_date.valueOf()) {
+            newDuration = 0;
+        }
+        else {
+            newDuration = Math.round((endDate.valueOf() - newStartDate) / dayInEpoch);
+        }
+
+        newTask.end_date = endDate;
+        if (newDuration <= 0) {
+            console.log('here')
+            newTask.type = 'milestone';
+            newTask.duration = 0;
+            newTask.days_to_process = 0;
+            newTask.start_date = endDate;
+        } else {
+            newTask.duration = newDuration;
+        }
+
+        window.gantt.updateTask(id, newTask);
+
+        return window.gantt.$data.tasksStore.pull[id];
+    }
+}
+
+window.gantt.setEndDate = setEndDate;
 
 export const getFieldUpdater = (field) => (initialTask, updatedCost) => {
     const initialCost = initialTask[field] || 0;
