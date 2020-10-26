@@ -196,7 +196,16 @@ const setEndDate = (id, endDate, squash = true) => {
     }
 }
 
+const completeTask = (id, endDate) => {
+    const updatedTask = setEndDate(id, endDate);
+    updatedTask.progress = 1;
+    window.gantt.updateTask(id, updatedTask);
+    return updatedTask;
+}
+
 window.gantt.setEndDate = setEndDate;
+window.gantt.completeTask = completeTask;
+window.gantt.getSnapshot = getSnapshot;
 
 export const getFieldUpdater = (field) => (initialTask, updatedCost) => {
     const initialCost = initialTask[field] || 0;

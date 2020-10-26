@@ -52,7 +52,7 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
 //                setData(mock);
 //                setAssignments(receiptsMock.assignments);
 //        }
-    console.log('ver 0.0.3');
+    console.log('ver 0.0.4');
     }, [setEditPermissions]);
 
     useEffect(() => {
