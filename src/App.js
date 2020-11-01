@@ -13,7 +13,9 @@ const clearEditHistory = () => {
     window.gantt.clearRedoStack();
 }
 
-const Snufkin = ({tasks, links, selectedTask, receipts, editable = false, onSave}) => {
+const noop = () => {};
+
+const Snufkin = ({tasks, links, selectedTask, receipts, editable = false, onSave = noop, onUndo = noop}) => {
     const [data, setData] = useState({tasks: [], links: []});
     const [receiptAssignments, setAssignments] = useState({});
 
@@ -77,6 +79,7 @@ const Snufkin = ({tasks, links, selectedTask, receipts, editable = false, onSave
         if (tasks) {
             setEditPermissions(editable);
             window.gantt.onSave = onSave;
+            window.gantt.onUndo = onUndo;
         }
     }, [editable, tasks, onSave])
 
