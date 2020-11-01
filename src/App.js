@@ -5,7 +5,7 @@ import './App.scss';
 import { RecoilRoot } from 'recoil';
 import {data as mock, receipts as receiptsMock} from './mock-data';
 import {sendSaveGanttMessage, updateTaskCostsFromReceipts} from './utils';
-import {editable, selectedTaskState} from './store';
+import {editable as _editable, selectedTaskState} from './store';
 import {useSetRecoilState} from 'recoil';
 
 const clearEditHistory = () => {
@@ -13,11 +13,11 @@ const clearEditHistory = () => {
     window.gantt.clearRedoStack();
 }
 
-const Snufkin = ({tasks, links, selectedTask, receipts}) => {
+const Snufkin = ({tasks, links, selectedTask, receipts, editable = false, onSave}) => {
     const [data, setData] = useState({tasks: [], links: []});
     const [receiptAssignments, setAssignments] = useState({});
 
-    const setEditPermissions = useSetRecoilState(editable);
+    const setEditPermissions = useSetRecoilState(_editable);
     const setSelectedTask = useSetRecoilState(selectedTaskState);
 
     useEffect(() => {
@@ -52,7 +52,7 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
 //                setData(mock);
 //                setAssignments(receiptsMock.assignments);
 //        }
-    console.log('ver 0.0.4');
+    console.log('ver 0.0.5');
     }, [setEditPermissions]);
 
     useEffect(() => {
@@ -72,6 +72,13 @@ const Snufkin = ({tasks, links, selectedTask, receipts}) => {
     useEffect(() => {
         if (receipts && receipts.assignments) setAssignments(receipts.assignments)
     }, [receipts])
+
+    useEffect(() => {
+        if (tasks) {
+            setEditPermissions(editable);
+            window.gantt.onSave = onSave;
+        }
+    }, [editable, tasks, onSave])
 
      return (
      <>

@@ -6,7 +6,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 
 const Save = () => {
     return <div className='tooltip-button-wrapper'>
-                           <Button onClick={sendSaveGanttMessage} className='tooltip-button'>
+                           <Button onClick={window.gantt.onSave} className='tooltip-button'>
                               <span className='tooltip-button-title'>Save</span>
                               <FontAwesomeIcon icon={faSave} className='expand'/>
                            </Button>

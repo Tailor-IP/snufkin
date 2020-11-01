@@ -315,3 +315,7 @@ export const updateTaskCostsFromReceipts = (assignments) => {
         }
     })
 }
+
+
+window.gantt.getSnapshot = getSnapshot;
+window.gantt.onSave = sendSaveGanttMessage;
