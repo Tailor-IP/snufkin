@@ -21,13 +21,14 @@ const UndoRedo = ({className = ''}) => {
 
     const undo = () => {
         window.gantt.undo();
-        window.gantt.onUndo();
+        if(window.gantt.onUndo) window.gantt.onUndo();
         setUndo(window.gantt.getUndoStack().length);
         setRedo(window.gantt.getRedoStack().length);
    }
 
     const redo = () => {
         window.gantt.redo();
+        if(window.gantt.onUndo) window.gantt.onUndo();
         setRedo(window.gantt.getRedoStack().length);
         setUndo(window.gantt.getUndoStack().length);
   }
