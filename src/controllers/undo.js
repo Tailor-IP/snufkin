@@ -28,7 +28,7 @@ const UndoRedo = ({className = ''}) => {
 
     const redo = () => {
         window.gantt.redo();
-        if(window.gantt.onUndo) window.gantt.onUndo();
+        if(window.gantt.onRedo) window.gantt.onRedo();
         setRedo(window.gantt.getRedoStack().length);
         setUndo(window.gantt.getUndoStack().length);
   }
