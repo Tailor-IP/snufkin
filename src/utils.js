@@ -181,7 +181,6 @@ const setEndDate = (id, endDate, squash = true) => {
 
         newTask.end_date = endDate;
         if (newDuration <= 0) {
-            console.log('here')
             newTask.type = 'milestone';
             newTask.duration = 0;
             newTask.days_to_process = 0;

@@ -4,10 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 
 const FullScreen = () => {
-    const rootDiv = window.document.getElementById('snufkin');
-    const onClick = () => {
-        if (!window.screenTop && !window.screenY) document.exitFullscreen()
-        else rootDiv.requestFullscreen()
+    const onClick = async () => {
+        const rootDiv = window.document.getElementById('snufkin');
+        console.log(rootDiv)
+
+        if (rootDiv.clientHeight >= window.innerHeight) {
+            try {
+                 await document.exitFullscreen()
+            } catch (e) {
+                rootDiv.requestFullscreen()
+            }
+        } else rootDiv.requestFullscreen()
     };
 
     return <div className='tooltip-button-wrapper'>

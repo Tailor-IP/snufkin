@@ -3,8 +3,10 @@ import { Switch } from 'antd';
 import {defaultColumns, inlineEditColumns} from '../columns';
 import {costUpdaters, onDurationChange, onTaskMove} from '../utils';
 
+let editing = false;
+
 const handleInlineEditing = (diff) => {
-    const task = window.gantt.getTask(diff.id);
+    const task = {...window.gantt.getTask(diff.id), [diff.columnName]: diff.oldValue};
     if (task.type === 'project') {
         return
     }
@@ -31,19 +33,29 @@ const handleInlineEditing = (diff) => {
     }
 
     if (diff.columnName === 'start_date') {
-        onTaskMove(task, diff.newValue);
-        return
+       onTaskMove(task, diff.newValue)
     }
 }
 
 const subscribeToInlineEditing = () => {
-                    window.gantt.ext.inlineEditors.attachEvent("onBeforeSave", (diff) => {
-                                                       handleInlineEditing(diff);
+                    window.gantt.ext.inlineEditors.attachEvent("onSave", (diff) => {
+                                                      editing = false;
+                                                      handleInlineEditing(diff);
                                                        return true;
                                                    });
+
+                   window.gantt.ext.inlineEditors.attachEvent("onEditEnd", function(state){
+
+                        editing = false;
+                        return true;
+                    })
+
                     window.gantt.ext.inlineEditors.attachEvent('onBeforeEditStart', (diff) => {
-                         const task = window.gantt.getTask(diff.id);
-                         return task.type !== window.gantt.config.types.project || diff.columnName === 'text';
+                      const task = window.gantt.getTask(diff.id);
+                       if (editing) return false;
+                        else if (task.type === window.gantt.config.types.project && (diff.columnName !== 'text')) return false;
+                        editing = true;
+                        return true;
                     })
                 }
 
