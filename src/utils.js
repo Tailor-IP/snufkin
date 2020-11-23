@@ -316,5 +316,46 @@ export const updateTaskCostsFromReceipts = (assignments) => {
 }
 
 
+const costKeys = ['minCost', 'maxCost', 'attorneyFee', 'officialFee', 'associateFee', 'brokerageFee', 'unidentifiedFee'];
+const zeroFolderCosts =  (folder) => {
+    costKeys.forEach(key => {
+        folder[key] = 0;
+      })
+  return folder;
+}
+
+const addTaskCostToFolder = (folder, task) => {
+  costKeys.forEach(key => {
+    folder[key] = parseFloat(folder[key] || 0) + parseFloat(task[key] || 0)
+  })
+  return folder;
+}
+
+export const resetFolderCosts = () => {
+    let folders = window.gantt.getTaskByTime().filter(e => {return e.type==='project'});
+    folders.forEach((folder)=> {
+        zeroFolderCosts(folder);
+        window.gantt.updateTask(folder.id, folder);
+    });
+    const leaves = window.gantt.getTaskByTime().filter((e) => {return !window.gantt.getChildren(e.id).length});
+
+    leaves.forEach((leaf) => {
+        let parentId = leaf.parent;
+        while (parentId) {
+            console.log(parentId)
+            let parentTask = window.gantt.getTask(parentId);
+            if(!parentTask){
+                break
+            }
+            addTaskCostToFolder(parentTask, leaf);
+            window.gantt.updateTask(parentTask.id, parentTask);
+            parentId = parentTask.parent;
+        }
+        
+    })
+}
+
+
+
 window.gantt.getSnapshot = getSnapshot;
 window.gantt.onSave = sendSaveGanttMessage;

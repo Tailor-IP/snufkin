@@ -4,7 +4,7 @@ import {viewComponents} from './lightboxes';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { selectedTaskState, editable, undoStack, redoStack } from './store';
 import {Zoom, Toolbar} from './controllers';
-import {showTask, updateBranch, onTaskMove, dateToString} from './utils';
+import {showTask, updateBranch, onTaskMove, dateToString, resetFolderCosts} from './utils';
 
 let gantt;
 
@@ -33,7 +33,6 @@ export const Gantt = ({data, onSave}) => {
 
     useEffect(() => {
         window.gantt.ext.inlineEditors.attachEvent("onEditEnd", function(state){
-            debugger
            return true;
         });
     }, [])
@@ -63,6 +62,8 @@ export const Gantt = ({data, onSave}) => {
             title: dateToString(new Date()),
             text: "Today"
         });
+
+        resetFolderCosts();
 
 //        if (data && data.tasks && data.tasks.length) {
 //            Object.values(data.tasks).forEach(t => gantt.addTask(t, t.parent))

@@ -49,11 +49,11 @@ const Snufkin = ({tasks, links, selectedTask, receipts, editable = false, onSave
                     }
             }
         }
-//        if (window.location.pathname.split('/').includes('test')) {
-//                    setEditPermissions(true)
-//                    setData(mock);
-//                    setAssignments(receiptsMock.assignments);
-//        }
+    //    if (window.location.pathname.split('/').includes('test')) {
+    //                setEditPermissions(true);
+    //                setData(mock);
+    //                setAssignments(receiptsMock.assignments);
+    //    }
     console.log('ver 0.0.9');
     }, [setEditPermissions]);
 
