@@ -49,12 +49,12 @@ const Snufkin = ({tasks, links, selectedTask, receipts, editable = false, onSave
                     }
             }
         }
-       if (window.location.pathname.split('/').includes('test')) {
-                   setEditPermissions(true);
-                   setData(mock);
-                   setAssignments(receiptsMock.assignments);
-       }
-    console.log('ver 0.0.10');
+    //    if (window.location.pathname.split('/').includes('test')) {
+    //                setEditPermissions(true);
+    //                setData(mock);
+    //                setAssignments(receiptsMock.assignments);
+    //    }
+    console.log('ver 0.0.11');
     }, [setEditPermissions]);
 
     useEffect(() => {
